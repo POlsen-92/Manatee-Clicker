@@ -1,0 +1,14 @@
+<h1>Dashboard</h1>
+<a href=# onclick="add()"><img src="../public/assets/button.png" alt="manatee-button"></a>
+<br>
+Manatee Points:
+<input type="text" id="text" disabled style="text-align: center">
+<script>
+    let manateecount = 0
+    function add() {
+        manateecount=manateecount+1
+        document.querySelector("#text").value = manateecount;
+        document.title = manateecount + "manatee points"
+    }
+</script>
+<br>
