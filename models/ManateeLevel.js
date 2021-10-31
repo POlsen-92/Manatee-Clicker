@@ -1,4 +1,5 @@
-const User = require('./User');
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 class ManateeLevel extends Model { }
 
