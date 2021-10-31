@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { ManateeLevel, User} = require('../../models');
+const { Level, User} = require('../../models');
 const bcrypt = require("bcrypt");
 
 // The `http://localhost:3000/api/users` endpoint
@@ -10,7 +10,7 @@ const bcrypt = require("bcrypt");
 router.get("/", async (req,res)=>{
     try {
         const userData = await User.findAll({
-            include:[{ model:ManateeLevel}]
+            include:[{ model:Level}]
         }).then(dbUsers=>{
             if(dbUsers.length){
                 res.json(dbUsers)
