@@ -13,7 +13,8 @@ router.get("/", async (req,res)=>{
                 include:[{model:ManateeLevel}],
             })
             res.status(200).json(userData)
-    }catch(err) {
+    }
+    catch(err) {
         console.log(err);
         res.status(500).json({message:"an error occured",err:err})
     }
@@ -29,9 +30,9 @@ router.get('/:id', async (req, res) => {
         res.status(404).json({ message: 'No ManateeLevel found with that id!' });
         return;
       }
-  
       res.status(200).json(userData);
-    } catch (err) {
+    } 
+    catch (err) {
       res.status(500).json(err);
     }
   });
@@ -89,17 +90,19 @@ router.put("/:id", async (req, res)=> {
 
 //SIGN UP USER
 
-router.post("/signup",(req,res)=>{
+router.post("/signup", async (req,res)=>{
     req.session.destroy();
-    User.create({
-        username:req.body.username,
-        password:req.body.password
-    }).then(newUser=>{
+    try {
+        const newUser = await User.create({
+            username:req.body.username,
+            password:req.body.password
+        })
         res.json(newUser);
-    }).catch(err=>{
+    }
+    catch(err){
         console.log(err);
         res.status(500).json({message:"an error occured",err:err})
-    })
+    }
 })
 
 //SIGN OUT OF USER PROFILE 
@@ -111,13 +114,22 @@ router.get("/signout",(req,res) => {
 
 //DELETE USER
 
-router.delete("/:id",(req,res)=>{
-    User.destroy({
-        where:{
-            id:req.params.id
-        }
-    }).then(delUser=>{
+router.delete("/:id",async (req,res)=>{
+    try{
+        const delUser = await User.destroy({
+            where:{
+                id:req.params.id
+            }
+        })
+        if (!delUser) {
+            res.status(404).json({ message: 'No User with this id!' });
+            return;
+          }
         res.json(delUser)
-    })
+    }
+    catch(err){
+        console.log(err);
+        res.status(500).json({message:"an error occured",err:err})
+    }
 })
 

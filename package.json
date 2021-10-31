@@ -1,4 +1,22 @@
 {
+  "name": "manatee-clicker",
+  "description": "",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/POlsen-92/Manatee-Clicker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/POlsen-92/Manatee-Clicker/issues"
+  },
+  "homepage": "https://github.com/POlsen-92/Manatee-Clicker#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.2",
