@@ -1,11 +1,11 @@
 const router = require('express').Router();
 const userRoutes = require('./user-routes');
-const manateelevelRoutes = require('./level-routes');
+const manateeRoutes = require('./manatee-routes');
 
 // http://localhost:3000/api/
 
 router.use('/users', userRoutes);
-router.use('/manateelvl', manateelevelRoutes);
+router.use('/manatees', manateeRoutes);
 
 
 module.exports = router;

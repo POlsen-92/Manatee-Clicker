@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { ManateeLevel, User} = require('../../models');
+const { Manatee, User} = require('../../models');
 const bcrypt = require("bcrypt");
 
 // The `http://localhost:3000/api/users` endpoint
@@ -10,7 +10,7 @@ const bcrypt = require("bcrypt");
 router.get("/", async (req,res)=>{
     try {
         const userData = await User.findAll({
-                include:[{model:ManateeLevel}],
+                include:[{model:Manatee}],
             })
             res.status(200).json(userData)
     }
@@ -24,10 +24,10 @@ router.get("/", async (req,res)=>{
 router.get('/:id', async (req, res) => {
     try {
       const userData = await User.findByPk(req.params.id, {
-        include: [{ model: ManateeLevel }],
+        include: [{ model: Manatee }],
       });
       if (!userData) {
-        res.status(404).json({ message: 'No ManateeLevel found with that id!' });
+        res.status(404).json({ message: 'No User found with that id!' });
         return;
       }
       res.status(200).json(userData);
@@ -37,8 +37,8 @@ router.get('/:id', async (req, res) => {
     }
   });
 
-//SIGN IN WITH EXISTING USER
 
+//SIGN IN WITH EXISTING USER
 router.post("/signin", async (req,res)=>{
     try {
         const foundUser = await User.findOne({
@@ -107,9 +107,15 @@ router.post("/signup", async (req,res)=>{
 
 //SIGN OUT OF USER PROFILE 
 
-router.get("/signout",(req,res) => {
-    req.session.destroy();
-    res.render("signout");
+router.get("/signout", async (req,res) => {
+    try {
+        req.session.destroy();
+        res.render("signout");
+    }
+    catch(err){
+        console.log(err);
+        res.status(500).json({message:"an error occured",err:err})
+    }
 })
 
 //DELETE USER
