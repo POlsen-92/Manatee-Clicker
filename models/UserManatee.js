@@ -6,13 +6,6 @@ class UserManatee extends Model {}
 
 UserManatee.init(
   {
-    // define columns
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
     manatee_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -20,13 +13,17 @@ UserManatee.init(
         key: 'id'
       }
     },
-    manatee_bonus: {
+    user_id: {
         type: DataTypes.INTEGER,
         references: {
           model: 'user',
           key: 'id'
         }
-      }
+      },
+    count: {
+        type:DataTypes.INTEGER,
+        default: 0
+    }
   },
   {
     sequelize,
