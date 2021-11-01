@@ -25,11 +25,6 @@ User.init(
                 len: [8]
             }
         },
-        manatee_bonus: {//score evaluation
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: false
-        },
         lifetime_points: {
             type: DataTypes.INTEGER,
             default: 0
@@ -42,7 +37,6 @@ User.init(
             type: DataTypes.INTEGER,
             default: 1
         }
-
     },
     {
         hooks: {
@@ -58,8 +52,6 @@ User.init(
         sequelize,
         timestamps: false,
         freezeTableName: true,
-        underscored: true,
-        modelName: 'user'
     }
 );
 
