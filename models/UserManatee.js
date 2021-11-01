@@ -1,11 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection');
-const Tag = require('./Tag');
 
-class ProductTag extends Model {}
+class UserManatee extends Model {}
 
-ProductTag.init(
+UserManatee.init(
   {
     // define columns
     id: {
@@ -14,28 +13,28 @@ ProductTag.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    product_id: {
+    manatee_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'product',
+        model: 'manatee',
         key: 'id'
       }
     },
-    tag_id: {
-      type:DataTypes.INTEGER,
-      references: {
-        model: 'tag',
-        key: 'id'
+    manatee_bonus: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'user',
+          key: 'id'
+        }
       }
-    }
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'product_tag',
+    modelName: 'user_manatee',
   }
 );
 
-module.exports = ProductTag;
+module.exports = UserManatee;
