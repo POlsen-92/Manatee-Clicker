@@ -29,7 +29,7 @@ signupForm.addEventListener('submit', async (e) => {
     const signupPassword = document.getElementById('password-create').value
 
     if(signupPassword && signupUsername){
-        const resp = await fetch('/api/users', {
+        const resp = await fetch('/api/users/signup', {
             method: 'POST',
             body: JSON.stringify({ username:signupUsername, password:signupPassword }),
             headers: { 'Content-Type': 'application/json' }
