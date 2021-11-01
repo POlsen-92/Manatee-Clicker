@@ -1,15 +1,16 @@
 const User = require("./User");
-const ManateeLevel = require("./ManateeLevel");
+const Manatee = require("./Manatee");
 
-User.belongsTo(ManateeLevel,{
-    onDelete:"CASCADE"
+User.belongsToMany(Manatee,{
+    through: UserManatee,
+    foreignKey: 'manatee_bonus',
 });
 
-ManateeLevel.belongsToMany(User,{
-    through:"score_requirement"
+Manatee.belongsTo(User,{
+    foreignKey: 'manatee_bonus',
 })
 
 module.exports={
     User,
-    ManateeLevel,
+    Manatee,
 };

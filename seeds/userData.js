@@ -1,24 +1,35 @@
 const { User } = require('../models');
 
-const userdata = [
-  {
-    username: 'POlsen92',
-    score: 1000,
-  },
-  {
-    username: 'Specsnstats',
-    score: 2000,
-  },
-  {
-    username: 'jmarq019',
-    score: 1500,
-  },
-  {
-    username: 'chloeharris1',
-    score: 500,
-  },
-];
+const seedUsers = async () => {
+  const userData = await User.bulkCreate([
+    {
+      username: 'POlsen92',
+      password: 'password',
+      lifetime_points: 500,
+      points_on_hand: 200,
+     },
+    {
+      username: 'Specsnstats',
+      password: 'password',
+      lifetime_points: 200,
+      points_on_hand: 100,
+     },
+    {
+      username: 'jmarq019',
+      password: 'password',
+      lifetime_points: 300,
+      points_on_hand: 250,
+     },
+    {
+      username: 'chloeharris1',
+      password: 'password',
+      lifetime_points: 500,
+      points_on_hand: 400,
+    },
+  ], {
+    individualHooks: true,
+    returning: true,
+  });
+}
 
-const seedUser = () => User.bulkCreate(userdata);
-
-module.exports = seedUser;
+module.exports = seedUsers;

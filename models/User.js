@@ -25,11 +25,18 @@ User.init(
                 len: [8]
             }
         },
-        score: {
+        lifetime_points: {
             type: DataTypes.INTEGER,
             default: 0
         },
-
+        points_on_hand: {
+            type: DataTypes.INTEGER,
+            default: 0
+        },
+        bonus_total: {
+            type: DataTypes.INTEGER,
+            default: 1
+        }
     },
     {
         hooks: {
@@ -45,8 +52,6 @@ User.init(
         sequelize,
         timestamps: false,
         freezeTableName: true,
-        underscored: true,
-        modelName: 'user'
     }
 );
 
