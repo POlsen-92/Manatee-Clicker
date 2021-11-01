@@ -11,8 +11,8 @@ const PORT = process.env.PORT || 3000;
 const hbs = exphbs.create({});
 
 // Requiring our models for syncing
-const {User} = require('./models');
-const routes = require("./routes");
+const {User, Manatee} = require('./models');
+const routes = require("./routes"); 
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
@@ -24,6 +24,9 @@ app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 2
+    },
     store: new SequelizeStore({
         db:sequelize
      })
