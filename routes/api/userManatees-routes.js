@@ -6,9 +6,7 @@ const { UserManatee,Manatee, User } = require('../../models');
 // DONE - find all UserManatees. be sure to include its associated User and Manatee data
 router.get('/', async (req, res) => {
   try {
-    const usmanData = await UserManatee.findAll({
-      include: [{ model: User }, {model: Manatee}],
-    });
+    const usmanData = await UserManatee.findAll();
     res.status(200).json(usmanData);
   } catch (err) {
     res.status(500).json(err);
@@ -18,9 +16,7 @@ router.get('/', async (req, res) => {
 // DONE - find a single Manatee by its `id`. be sure to include its associated User data
 router.get('/:id', async (req, res) => {
   try {
-    const usmanData = await UserManatee.findByPk(req.params.id, {
-      include: [{ model: User },{model: Manatee}],
-    });
+    const usmanData = await UserManatee.findByPk(req.params.id);
 
     if (!usmanData) {
       res.status(404).json({ message: 'No UserManatee found with that id!' });
