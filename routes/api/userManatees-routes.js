@@ -51,7 +51,8 @@ router.put('/:id', async (req, res) => {
     const usmanData = await UserManatee.update(req.body, {
       count: count++,
       where: {
-        id: req.params.id,
+        user_id:req.sessions.id,
+        manatee_id:manatee_id
       },
     });
     if (!usmanData[0]) {
