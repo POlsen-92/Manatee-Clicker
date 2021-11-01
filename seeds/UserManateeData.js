@@ -1,22 +1,26 @@
 const { UserManatee } = require('../models');
 
-const seedUserManatee = async () => {
+const seedUserManatees = async () => {
   const userManateeData = await UserManatee.bulkCreate([
     {
-      manatee_id: '1',
-      manatee_bonus: '',
-     },
+    user_id: 1,
+    manatee_id: 4,
+    },
     {
-      manatee_id: '1',
-      manatee_bonus: '',
-     },
+    user_id: 1,
+    manatee_id: 3,
+    },
     {
-      manatee_id: '',
-      manatee_bonus: '',
-     },
+    user_id: 2,
+    manatee_id: 3,
+    },
     {
-      manatee_id: '',
-      manatee_bonus: '',
+    user_id: 3,
+    manatee_id: 2,
+    },
+    {
+    user_id: 4,
+    manatee_id: 1,
     },
   ], {
     individualHooks: true,
@@ -24,4 +28,4 @@ const seedUserManatee = async () => {
   });
 }
 
-module.exports = seedUserManatee;
+module.exports = seedUserManatees;
