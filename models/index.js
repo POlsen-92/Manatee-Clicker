@@ -1,16 +1,21 @@
 const User = require("./User");
 const Manatee = require("./Manatee");
+const UserManatee = require("./UserManatee");
 
 User.belongsToMany(Manatee,{
     through: UserManatee,
-    foreignKey: 'manatee_bonus',
+    unique: false,
+    foreignKey: 'user_id',
 });
 
-Manatee.belongsTo(User,{
-    foreignKey: 'manatee_bonus',
+Manatee.belongsToMany(User,{
+    through: UserManatee,
+    unique: false,
+    foreignKey: 'manatee_id',
 })
 
 module.exports={
     User,
     Manatee,
+    UserManatee
 };

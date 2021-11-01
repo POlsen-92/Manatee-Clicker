@@ -1,7 +1,7 @@
 const sequelize = require('../config/connection');
-const User = require('../models/User');
 const seedUsers = require('./userData');
-const seedManatees = require('./manateeData')
+const seedManatees = require('./manateeData');
+const seedUserManatees = require('./userManateeData')
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -12,6 +12,9 @@ const seedDatabase = async () => {
 
   await seedManatees()
   console.log('\n----- MANATEES SEEDED -----\n');
+
+  await seedUserManatees()
+  console.log('\n----- USERMANATEES SEEDED -----\n');
 
   process.exit(0);
 };
