@@ -45,14 +45,14 @@ router.post('/', async (req, res) => {
 });
 
 
-// DONE - update a UserManatee's count by its `id` value 
-router.put('/:id', async (req, res) => {
+// DONE - update a UserManatee's count by its 
+router.put('/', async (req, res) => {
   try {
     const usmanData = await UserManatee.update(req.body, {
       count: count++,
       where: {
         user_id:req.sessions.id,
-        manatee_id:manatee_id
+        manatee_id:req.body.manatee_id
       },
     });
     if (!usmanData[0]) {
