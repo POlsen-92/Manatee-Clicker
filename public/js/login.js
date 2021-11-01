@@ -36,7 +36,7 @@ signupForm.addEventListener('submit', async (e) => {
         })
 
         if(resp.ok){
-            location.href = '/dashboard'
+            location.href =('/dashboard')
         } else {
             alert('Sorry. That user already exists')
         }

@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 const hbs = exphbs.create({});
 
 // Requiring our models for syncing
-const {User, Manatee} = require('./models');
+const {User, Manatee, UserManatee} = require('./models');
 const routes = require("./routes"); 
 
 app.engine('handlebars', hbs.engine);
