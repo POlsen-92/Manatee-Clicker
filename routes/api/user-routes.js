@@ -85,23 +85,33 @@ router.post("/signin", async (req,res)=>{
     }
 })
 
-//UPDATE EXISTING USER
-router.put("/:id", async (req, res)=> {
+//UPDATE EXISTING USER USERNAME OR PASSWORD
+router.put("/update", async (req, res)=> {
     try {
-        const user = await User.update(
-            {
-                username: req.body.username,
-                password: req.body.password
-            },
-            {
-                where: {
-                    id: req.params.id
+        const foundUser = await User.findOne({
+            where:{
+                id:req.session.id
+            }
+        })
+        if(!foundUser){
+            res.status(401).json({message:"Something Went Wrong"})
+        } else {
+            if(bcrypt.compareSync(req.body.password,foundUser.password)){
+                const user = await User.update(
+                    {
+                        username: req.body.username,
+                        password: req.body.newPassword
+                    },
+                );
+                res.status(200).json(user);
+            } else {
+                res.status(401).json({message:"incorrect Password"})
                 }
             }
-        );
-        res.status(200).json(user);
-    } catch (err) {
-        res.status(500).json(err)
+        }
+    catch(err) {
+         console.log(err);
+        res.status(500).json(err);
     }
 })
 
@@ -137,11 +147,11 @@ router.get("/signout", async (req,res) => {
 
 //DELETE USER
 
-router.delete("/:id",async (req,res)=>{
+router.delete("/delete",async (req,res)=>{
     try{
         const delUser = await User.destroy({
             where:{
-                id:req.params.id
+                id:req.session.id
             }
         })
         if (!delUser) {
