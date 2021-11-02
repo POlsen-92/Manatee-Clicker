@@ -183,7 +183,6 @@ router.post("/signup", async (req,res)=>{
             username:req.body.username,
             password:req.body.password
         })
-        res.json(newUser);
         UserManatee.bulkCreate([
               {
               user_id: newUser.id,
@@ -213,6 +212,7 @@ router.post("/signup", async (req,res)=>{
                 username:newUser.username,
                 id:newUser.id
             }
+            res.json(newUser);
     }
     catch(err){
         console.log(err);
