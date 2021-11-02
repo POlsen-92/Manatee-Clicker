@@ -49,16 +49,16 @@ console.log(tempClickValue)
 //     pointsOnHandText.innerHTML = 
 // }
 
-const add = ()=>{
-    fetch("api/users/updatepoints/"), {
+document.getElementById("click-button").addEventListener("click", ()=>{
+    fetch("/api/users/updatepoints", {
         method: "PUT",
         body: JSON.stringify({
             points_on_hand: 100000,
             lifetime_points:1000000
         }),
         headers:{"Content-Type":"application/json"}
-    }
-}
+    })
+});
 
 // buyButton.forEach((el)=>{el.addEventListener("click", (event) => {
 //     event.preventDefault()
