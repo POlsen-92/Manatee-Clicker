@@ -91,7 +91,7 @@ router.put("/:id", async (req, res)=> {
 //SIGN UP USER
 
 router.post("/signup", async (req,res)=>{
-    req.session.destroy();
+    // req.session.destroy();
     try {
         const newUser = await User.create({
             username:req.body.username,
