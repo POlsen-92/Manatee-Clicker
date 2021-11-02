@@ -37,6 +37,23 @@ router.get('/:id', async (req, res) => {
     }
   });
 
+// FIND A SINGLE USER USING LOGIN CREDENTIALS  
+router.get('/info', async (req, res) => {
+    try {
+      const userData = await User.findByPk(req.session.id, {
+        include: [{ model: Manatee }],
+      });
+      if (!userData) {
+        res.status(404).json({ message: 'No User found with that id!' });
+        return;
+      }
+      res.status(200).json(userData);
+    } 
+    catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
 
 //SIGN IN WITH EXISTING USER
 router.post("/signin", async (req,res)=>{
