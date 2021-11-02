@@ -23,7 +23,7 @@ router.get("/", async (req,res)=>{
 // FIND A SINGLE USER USING LOGIN CREDENTIALS  
 router.get('/info', async (req, res) => {
     try {
-      const userData = await User.findByPk(req.session.user.id, {
+      const userData = await User.findByPk(req.session.id, {
         include: [{ model: Manatee }],
       });
       if (!userData) {

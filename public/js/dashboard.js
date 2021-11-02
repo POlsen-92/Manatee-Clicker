@@ -4,7 +4,7 @@ const costPolicemanatee = document.getElementById("cost-policemanatee");
 const manateeLevel = document.getElementById("manatee-level");
 const leaderboardPlace = document.getElementById("leaderboardPlace");
 const buyButton = document.querySelectorAll(".buy-button");
-const lifetimePointsText = document.
+const lifetimePointsText = document.getElementById("lifetime-points");
 
 //TODO: insert variable declarations for db info
 const update = () => {
@@ -15,11 +15,12 @@ const update = () => {
         .then(data => {
             console.log(data)
 
-            // const accountantLevel = data.manatees[0].user_manatee.count
-            // const policemanateeLevel = data.manatees[1].user_manatee.count
-            // const lawyerLevel = data.manatees[2].user_manatee.count
-            // const clickValue = policemanateeLevel + accountantLevel+ lawyerLevel
-            // manateeLevel.innerHTML = clickValue
+            const accountantLevel = data.manatees[3].user_manatee.count
+            const policemanateeLevel = data.manatees[2].user_manatee.count
+            const unicornLevel = data.manatees[0].user_manatee.count
+            const lawyerLevel = data.manatees[1].user_manatee.count
+            const clickValue = policemanateeLevel + accountantLevel+ unicornLevel+ lawyerLevel
+            manateeLevel.innerHTML = clickValue
 
             const lifetimePoints = data.lifetime_points
             lifetimePointsText.innerHTML = lifetimePoints
