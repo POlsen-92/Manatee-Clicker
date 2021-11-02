@@ -14,7 +14,22 @@ const seedUserManatees = async () => {
     },
     {
     user_id: 2,
+    manatee_id: 1,
+    count: 6
+    },
+    {
+    user_id: 2,
+    manatee_id: 2,
+    count: 6
+    },
+    {
+    user_id: 2,
     manatee_id: 3,
+    count: 6
+    },
+    {
+    user_id: 2,
+    manatee_id: 4,
     count: 6
     },
     {
