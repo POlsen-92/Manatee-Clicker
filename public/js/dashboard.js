@@ -41,7 +41,7 @@ const onLoad = () => {
         })
     }
     
-    console.log(tempPointsOnHand+tempClickValue)
+console.log(tempPointsOnHand+tempClickValue)
 console.log(tempLifetimePoints)
 console.log(tempClickValue)
 
