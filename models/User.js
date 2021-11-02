@@ -27,15 +27,15 @@ User.init(
         },
         lifetime_points: {
             type: DataTypes.INTEGER,
-            default: 0
+            defaultValue: 0
         },
         points_on_hand: {
             type: DataTypes.INTEGER,
-            default: 0
+            defaultValue: 0
         },
         bonus_total: {
             type: DataTypes.INTEGER,
-            default: 1
+            defaultValue: 1
         }
     },
     {
