@@ -25,10 +25,10 @@ loginForm.addEventListener('submit', async (e) => {
 signupForm.addEventListener('submit', async (e) => {
     e.preventDefault()
     
-    const signupUsername = document.getElementById('username-createe').value
+    const signupUsername = document.getElementById('username-create').value
     const signupPassword = document.getElementById('password-create').value
 
-    if(signupPassword && signupUsername){
+    if(signupUsername && signupPassword){
         const resp = await fetch('/api/users/signup', {
             method: 'POST',
             body: JSON.stringify({ username:signupUsername, password:signupPassword }),
@@ -36,9 +36,9 @@ signupForm.addEventListener('submit', async (e) => {
         })
 
         if(resp.ok){
-            location.href =('/dashboard')
+            location.href = '/dashboard'
         } else {
-            alert('Sorry. That user already exists')
+            alert('User already exists?')
         }
     }
 });
