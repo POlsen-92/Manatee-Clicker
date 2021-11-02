@@ -4,45 +4,51 @@ const chngePW = document.getElementById('chngPW-form')
 //this script controls updating username for user
 chngeUN.addEventListener('submit', async (e) => {
     e.preventDefault()
-    const newUsername = document.getElementById('newUN').value
-    const currentPassword = document.getElementById('currentPW').value
 
-    if(newUsername && currentPassword){
-        const resp = await fetch('/api/users/update', {
+    const userObj={
+        username:document.querySelector('#newUN').value,
+        password:document.querySelector('#currentPW1').value
+    }
+
+    if(userObj.username && userObj.password){
+        fetch('/api/users/updateUN', {
             method: 'PUT',
-            body: JSON.stringify({ username:newUsername, password:currentPassword }),
+            body: JSON.stringify(userObj),
             headers: { 'Content-Type': 'application/json' }
+        }).then(res=>{
+            if(res.ok){
+                console.log(res);
+                location.href('/dashboard')
+            } else {
+                alert('Something Went Wrong')
+            }
         })
-
-        if(resp.ok){
-            console.log(resp);
-            location.replace('/settings')
-        } else {
-            alert('Your password is not correct!')
-        }
     }
 });
 
 
 //this script controls updating password for user
-chngePW.addEventListener('submit', async (e) => {
+chngePW.addEventListener('submit', (e) => {
     e.preventDefault()
-    
-    const currentPW = document.getElementById('currentPW').value
-    const newPassword = document.getElementById('newPW').value
 
-    if(currentPW && newPassword){
-        const resp = await fetch('/api/users/update', {
-            method: 'POST',
-            body: JSON.stringify({ password:currentPW, newPassword:newPassword }),
+    const userObj={
+        password:document.querySelector('#currentPW2').value,
+        newPassword:document.querySelector('#newPW').value
+    }
+
+    if(userObj.password && userObj.newPassword){
+        fetch('/api/users/updatePW', {
+            method: 'PUT',
+            body: JSON.stringify(userObj),
             headers: { 'Content-Type': 'application/json' }
+        }).then(res=>{
+            if(res.ok){
+                console.log(res);
+                location.href('/dashboard')
+            } else {
+                alert('Something Went Wrong')
+            }
         })
-
-        if(resp.ok){
-            location.href = '/settings'
-        } else {
-            alert('Your password is not correct!')
-        }
     }
 });
 

@@ -86,7 +86,7 @@ router.post("/signin", async (req,res)=>{
 })
 
 //UPDATE EXISTING USER USERNAME OR PASSWORD
-router.put("/update", async (req, res)=> {
+router.put("/updateUN", async (req, res)=> {
     try {
         const foundUser = await User.findOne({
             where:{
@@ -100,6 +100,34 @@ router.put("/update", async (req, res)=> {
                 const user = await User.update(
                     {
                         username: req.body.username,
+                    },
+                );
+                res.status(200).json(user);
+            } else {
+                res.status(401).json({message:"incorrect Password"})
+                }
+            }
+        }
+    catch(err) {
+         console.log(err);
+        res.status(500).json(err);
+    }
+})
+
+//UPDATE EXISTING USER USERNAME OR PASSWORD
+router.put("/updatePW", async (req, res)=> {
+    try {
+        const foundUser = await User.findOne({
+            where:{
+                id:req.session.id
+            }
+        })
+        if(!foundUser){
+            res.status(401).json({message:"Something Went Wrong"})
+        } else {
+            if(bcrypt.compareSync(req.body.password,foundUser.password)){
+                const user = await User.update(
+                    {
                         password: req.body.newPassword
                     },
                 );
@@ -134,15 +162,9 @@ router.post("/signup", async (req,res)=>{
 
 //SIGN OUT OF USER PROFILE 
 
-router.get("/signout", async (req,res) => {
-    try {
-        req.session.destroy();
-        res.render("signout");
-    }
-    catch(err){
-        console.log(err);
-        res.status(500).json({message:"an error occured",err:err})
-    }
+router.get("/signout",(req,res) => {
+    req.session.destroy();
+    res.render("dashboard");
 })
 
 //DELETE USER
