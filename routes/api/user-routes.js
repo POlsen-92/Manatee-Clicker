@@ -23,7 +23,7 @@ router.get("/", async (req,res)=>{
 // FIND A SINGLE USER USING LOGIN CREDENTIALS  
 router.get('/info', async (req, res) => {
     try {
-      const userData = await User.findByPk(req.session.id, {
+      const userData = await User.findByPk(req.session.user.id, {
         include: [{ model: Manatee }],
       });
       if (!userData) {
@@ -142,6 +142,26 @@ router.put("/updatePW", async (req, res)=> {
          console.log(err);
         res.status(500).json(err);
     }
+})
+
+// UPDATE TO USER POINTS
+router.put("/updatepoints", async (req,res)=>{
+    try {
+        const foundUser = await User.findByPk(req.session.user.id, {
+          include: [{ model: Manatee }],
+        });
+        if (!foundUser) {
+          res.status(404).json({ message: 'No User found with that id!' });
+          return;
+        } else {User.update({
+            lifetime_points: req.body.lifetime_points,
+            points_on_hand: req.body.points_on_hand
+        })}
+      } 
+      catch (err) {
+        res.status(500).json(err);
+        console.log(err)
+      }
 })
 
 //SIGN UP USER
