@@ -20,10 +20,10 @@ router.get("/", async (req,res)=>{
     }
 })
 
-//FIND A SINGLE USER
-router.get('/:id', async (req, res) => {
+// FIND A SINGLE USER USING LOGIN CREDENTIALS  
+router.get('/info', async (req, res) => {
     try {
-      const userData = await User.findByPk(req.params.id, {
+      const userData = await User.findByPk(req.session.user.id, {
         include: [{ model: Manatee }],
       });
       if (!userData) {
@@ -34,13 +34,14 @@ router.get('/:id', async (req, res) => {
     } 
     catch (err) {
       res.status(500).json(err);
+      console.log(err)
     }
   });
 
-// FIND A SINGLE USER USING LOGIN CREDENTIALS  
-router.get('/info', async (req, res) => {
+//FIND A SINGLE USER
+router.get('/:id', async (req, res) => {
     try {
-      const userData = await User.findByPk(req.session.id, {
+      const userData = await User.findByPk(req.params.id, {
         include: [{ model: Manatee }],
       });
       if (!userData) {
