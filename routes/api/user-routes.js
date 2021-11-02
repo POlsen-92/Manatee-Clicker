@@ -162,9 +162,9 @@ router.post("/signup", async (req,res)=>{
 
 //SIGN OUT OF USER PROFILE 
 
-router.get("/signout",(req,res) => {
+router.post("/signout",(req,res) => {
     req.session.destroy();
-    res.render("dashboard");
+    res.render("login");
 })
 
 //DELETE USER
