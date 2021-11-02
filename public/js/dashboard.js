@@ -4,13 +4,31 @@ const costPolicemanatee = document.getElementById("cost-policemanatee");
 const manateeLevel = document.getElementById("manatee-level");
 const leaderboardPlace = document.getElementById("leaderboardPlace");
 const buyButton = document.querySelectorAll(".buy-button");
+const lifetimePointsText = document.
 
 //TODO: insert variable declarations for db info
-const update=()=>{
-    fetch("/api/users/info")}
-update()
+const update = () => {
+    fetch("/api/users/info")
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            console.log(data)
 
-// const clickValue = accountantLevel + policemanateeLevel
+            // const accountantLevel = data.manatees[0].user_manatee.count
+            // const policemanateeLevel = data.manatees[1].user_manatee.count
+            // const lawyerLevel = data.manatees[2].user_manatee.count
+            // const clickValue = policemanateeLevel + accountantLevel+ lawyerLevel
+            // manateeLevel.innerHTML = clickValue
+
+            const lifetimePoints = data.lifetime_points
+            lifetimePointsText.innerHTML = lifetimePoints
+
+            pointsOnHand = data.points_on_hand
+            pointsOnHandText.innerHTML = pointsOnHand
+        })
+}
+update()
 
 // const add = ()=>{
 //     lifetimePoints = lifetimePoints + bonusTotal
