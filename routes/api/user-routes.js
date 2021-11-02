@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Manatee, User} = require('../../models');
+const { Manatee, User, UserManatee} = require('../../models');
 const bcrypt = require("bcrypt");
 
 // The `http://localhost:3000/api/users` endpoint
@@ -154,6 +154,31 @@ router.post("/signup", async (req,res)=>{
             password:req.body.password
         })
         res.json(newUser);
+        UserManatee.bulkCreate([
+              {
+              user_id: newUser.id,
+              manatee_id: 1,
+              count: 0
+              },
+              {
+              user_id: newUser.id,
+              manatee_id: 2,
+              count:0
+              },
+              {
+              user_id: newUser.id,
+              manatee_id: 3,
+              count: 0
+              },
+              {
+              user_id: newUser.id,
+              manatee_id: 4,
+              count: 0
+              },
+            ], {
+              individualHooks: true,
+              returning: true,
+            });
     }
     catch(err){
         console.log(err);
@@ -163,9 +188,9 @@ router.post("/signup", async (req,res)=>{
 
 //SIGN OUT OF USER PROFILE 
 
-router.get("/signout",(req,res) => {
+router.post("/signout",(req,res) => {
     req.session.destroy();
-    res.render("dashboard");
+    res.render("login");
 })
 
 //DELETE USER

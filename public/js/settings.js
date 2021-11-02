@@ -1,5 +1,6 @@
 const chngeUN = document.getElementById('chngUN-form')
 const chngePW = document.getElementById('chngPW-form')
+const deleteUser = document.getElementById('btnDel')
 
 //this script controls updating username for user
 chngeUN.addEventListener('submit', async (e) => {
@@ -18,7 +19,8 @@ chngeUN.addEventListener('submit', async (e) => {
         }).then(res=>{
             if(res.ok){
                 console.log(res);
-                location.href('/dashboard')
+                alert("Username has Been Changed")
+                location.href('/settings')
             } else {
                 alert('Something Went Wrong')
             }
@@ -44,7 +46,8 @@ chngePW.addEventListener('submit', (e) => {
         }).then(res=>{
             if(res.ok){
                 console.log(res);
-                location.href('/dashboard')
+                alert("Password Has Been Changed")
+                location.href('/settings')
             } else {
                 alert('Something Went Wrong')
             }
@@ -52,4 +55,20 @@ chngePW.addEventListener('submit', (e) => {
     }
 });
 
+//this script controls the delete button
 
+deleteUser.addEventListener('submit', (e) => {
+    e.preventDefault()
+
+    fetch('/api/users/delete', {
+        method: 'DELETE',
+    }).then(res=>{
+        if(res.ok){
+            console.log(res);
+            alert("Account Has Been Deleted")
+        } else {
+            console.log(err)
+            alert('something went wrong')
+        }
+    })
+})
