@@ -6,11 +6,7 @@ const leaderboardPlace = document.getElementById("leaderboardPlace");
 const buyButton = document.querySelectorAll(".buy-button");
 let lifetimePointsText = document.getElementById("lifetime-points");
 
-let tempLifetimePoints
-let tempPointsOnHand
-let tempClickValue
-let tempId
-
+let clickValueOutside
 // grabs all api info, and puts all info on page when loaded
 const onLoad = () => {
     fetch("/api/users/info")
@@ -28,36 +24,28 @@ const onLoad = () => {
             const lawyerLevel = data.manatees[2].user_manatee.count
             const clickValue = policemanateeLevel + accountantLevel+ unicornLevel+ lawyerLevel
             manateeLevel.innerHTML = clickValue
-            tempclickValue = clickValue
-
             const lifetimePoints = data.lifetime_points
             lifetimePointsText.innerHTML = lifetimePoints
-            tempLifetimePoints = lifetimePoints
-
             pointsOnHand = data.points_on_hand
             pointsOnHandText.value = pointsOnHand
-            tempPointsOnHand=  pointsOnHand
-            
         })
     }
-    
-    console.log(tempPointsOnHand+tempClickValue)
-console.log(tempLifetimePoints)
-console.log(tempClickValue)
-
-// const add = ()=>{
-//     pointsOnHandText.innerHTML = 
-// }
-
-document.getElementById("click-button").addEventListener("click", ()=>{
+const update = ()=>{
     fetch("/api/users/updatepoints", {
         method: "PUT",
         body: JSON.stringify({
-            points_on_hand: 100000,
-            lifetime_points:1000000
+            points_on_hand: pointsOnHandText.value,
+            lifetime_points:lifetimePointsText.innerHTML
         }),
         headers:{"Content-Type":"application/json"}
     })
+}
+
+document.getElementById("click-button").addEventListener("click", ()=>{
+    const power = manateeLevel.innerHTML
+    console.log(power)
+    lifetimePointsText.innerHTML = Number(lifetimePointsText.innerHTML) + Number(power)
+    pointsOnHandText.value = Number(pointsOnHandText.value) + Number(power)
 });
 
 // buyButton.forEach((el)=>{el.addEventListener("click", (event) => {
@@ -87,3 +75,4 @@ document.getElementById("click-button").addEventListener("click", ()=>{
 // })})
 
 onLoad()
+
