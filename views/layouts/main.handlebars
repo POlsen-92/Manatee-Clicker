@@ -10,10 +10,22 @@
     <title>Manatee Clicker</title>
 </head>
 <body class="bg-dark text-light">
-    {{#if logged_in}}
-    {{!-- TODO: write in header code here --}}
-    {{/if}}
+    {{!-- {{#if logged_in --}}
+    <div id="main">
+        <button class="openbtn" onclick="openNav()">&#9776;</button>
+    </div>
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/leaderboard">LeaderBoard</a>
+        <a href="/settings">Settings</a>
+        <a href="/api/users/signout">SignOut</a>
+    </div>
+
+    {{!-- {{/if --}}
     {{{body}}}
 <audio id="audio" src="/assets/button-click.mp3" preload="auto"></audio>
+<script src="/js/main.js"></script>
 </body>
 </html>

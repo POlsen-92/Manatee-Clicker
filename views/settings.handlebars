@@ -1,0 +1,39 @@
+<div id="settings">
+    <div> {{!-- have border bottom, span width of page --}} 
+        <h1>Settings</h1>
+    </div>
+    <div id="settings-choices">
+        <h5>Change Username</h5>
+            <div> {{!-- when change password is clicked this chngPass-Form slides down --}}
+                <form class="form" role="form" autocomplete="off" id="chngUN-form">
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-sm rounded-0" id="newUN" placeholder="New Username">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control form-control-sm rounded-0" id="currentPW1" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-info btn-sm float-right mt-2" id="btnChngUN">Change Username</button>
+                    {{!-- <a href="javascript:void(0)" class="closebtn" onclick="closeUN()">&times;</a> --}}
+                </form>
+            </div>
+            <br>
+        <h5>Change Password</h5>
+            <div> {{!-- when change password is clicked this chngPass-Form slides down --}}
+                <form class="form" role="form" autocomplete="off" id="chngPW-form">
+                    <div class="form-group">
+                        <input type="password" class="form-control form-control-sm rounded-0" id="currentPW2" placeholder="Current Password">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control form-control-sm rounded-0" id="newPW" placeholder="New Password">
+                    </div>
+                    <button type="submit" class="btn btn-info btn-sm float-right mt-2" id="btnChngPW">Change Password</button>
+                    {{!-- <a href="javascript:void(0)" class="closebtn" onclick="closePW()">&times;</a> --}}
+                </form>
+            </div>
+            <br>
+        <div class="text-center">
+        <button type="submit" class="btn btn-danger btn-sm float-right mt-2" id="btnDel" onclick="href='/api/users/delete'">Delete Account</button>
+        </div>
+    </div>
+</div>
+<script src="/js/settings.js"></script>
