@@ -20,7 +20,7 @@ chngeUN.addEventListener('submit', async (e) => {
             if(res.ok){
                 console.log(res);
                 alert("Username has Been Changed")
-                location.href('/settings')
+                location.replace('/settings')
             } else {
                 alert('Something Went Wrong')
             }
@@ -47,7 +47,7 @@ chngePW.addEventListener('submit', (e) => {
             if(res.ok){
                 console.log(res);
                 alert("Password Has Been Changed")
-                location.href('/settings')
+                location.replace('/settings')
             } else {
                 alert('Something Went Wrong')
             }
@@ -57,17 +57,18 @@ chngePW.addEventListener('submit', (e) => {
 
 //this script controls the delete button
 
-deleteUser.addEventListener('submit', (e) => {
+deleteUser.addEventListener('click', (e) => {
     e.preventDefault()
 
     fetch('/api/users/delete', {
         method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' }
     }).then(res=>{
         if(res.ok){
             console.log(res);
             alert("Account Has Been Deleted")
+            location.replace('/login')
         } else {
-            console.log(err)
             alert('something went wrong')
         }
     })

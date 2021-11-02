@@ -188,17 +188,17 @@ router.post("/signup", async (req,res)=>{
 //SIGN OUT OF USER PROFILE 
 
 router.post("/signout",(req,res) => {
-    req.session.destroy();
-    res.render("login");
+    req.session.destroy()
+    res.status(200).json({message:"signed out successful"})
 })
 
 //DELETE USER
 
-router.delete("/delete",async (req,res)=>{
+router.delete("/delete", async (req,res)=>{
     try{
         const delUser = await User.destroy({
             where:{
-                id:req.session.id
+                id:req.session.user.id
             }
         })
         if (!delUser) {
@@ -206,6 +206,7 @@ router.delete("/delete",async (req,res)=>{
             return;
           }
         res.json(delUser)
+        req.session.destroy()
     }
     catch(err){
         console.log(err);
