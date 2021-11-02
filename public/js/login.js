@@ -1,6 +1,7 @@
 const loginForm = document.getElementById('login-form')
 const signupForm = document.getElementById('signup-form')
 
+//this script controls logging in for existing users
 loginForm.addEventListener('submit', async (e) => {
     e.preventDefault()
     const loginUser = document.getElementById('username-login').value
@@ -22,6 +23,8 @@ loginForm.addEventListener('submit', async (e) => {
     }
 });
 
+
+//this script controls logging in and user creation for new users
 signupForm.addEventListener('submit', async (e) => {
     e.preventDefault()
     
