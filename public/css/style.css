@@ -120,7 +120,7 @@ body {
 
 .table-fixed tbody {
     height: 300px;
-    overflow-y: auto;
+    overflow: scroll;
     width: 100%;
 }
 
