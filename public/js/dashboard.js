@@ -86,6 +86,7 @@ buyButton.forEach((el)=>{el.addEventListener("click", (event) => {
             pointsOnHandText.value= pointsOnHandText.value - cost
             console.log(`cost:${cost}`)
             update()
+            onLoad()
         }
     }
 )})
