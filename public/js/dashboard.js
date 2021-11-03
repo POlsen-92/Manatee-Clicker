@@ -84,6 +84,14 @@ buyButton.forEach((el)=>{el.addEventListener("click", (event) => {
     }
 )})
 
+var timesClicked = 0
+document.querySelector(".button-on-screen").addEventListener("click", ()=>{
+    timesClicked++
+})
+
+if(timesClicked = 5){
+    location.reload()
+}
 
 // window.setInterval(update, 5000)
 onLoad()
