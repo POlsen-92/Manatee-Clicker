@@ -13,15 +13,19 @@ let clickValueOutside
 
 // RELOAD PAGE ON EVERY 5 CLICKS
 var timesClicked = 0
-const buttonOnScreen = document.querySelector(".button-on-screen")
-buttonOnScreen.addEventListener("click", ()=>{
-    console.log("button clicked")
-    timesClicked++
-    console.log(timesClicked)
-    if(timesClicked == 6){
-        location.reload()
-    }
-})
+const buttonOnScreen = document.querySelectorAll(".button-on-screen")
+buttonOnScreen.forEach(button=>{
+
+    button.addEventListener("click", ()=>{
+        console.log("button clicked")
+        timesClicked++
+        console.log(timesClicked)
+        if(timesClicked == 1){
+            location.reload()
+        }
+    })
+}
+    )
 
 
 
