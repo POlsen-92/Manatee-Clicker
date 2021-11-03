@@ -9,7 +9,7 @@ Manatee.init(
             type: DataTypes.STRING,
             allowNull: false,
             unique:true
-        },
+        }
     },
     {
         sequelize,

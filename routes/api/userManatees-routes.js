@@ -49,12 +49,17 @@ router.post('/', async (req, res) => {
 router.put('/', async (req, res) => {
   console.log("===========MADE IT!=========")
   try {
-    console.log(req.body)
-    console.log(req.session.user.id)
+    const userManatee = await UserManatee.findOne({
+      where:{
+        manatee_id:req.body.manatee_id,
+        user_id:req.session.user.id
+      }
+    })
+    const newCount = userManatee.count + 1
+    console.log(newCount)
     const usmanData = await UserManatee.update({
-      count: req.body.count
-    },
-    {
+      count: newCount
+    },{
       where: {
         user_id:req.session.user.id,
         manatee_id:req.body.manatee_id
