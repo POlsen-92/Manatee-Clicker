@@ -51,8 +51,8 @@ router.put('/', async (req, res) => {
   try {
     console.log(req.body)
     console.log(req.session.user.id)
-    const usmanData = await UserManatee.update(req.body, {
-      count: ++count
+    const usmanData = await UserManatee.update({
+      count: req.body.count
     },
     {
       where: {
