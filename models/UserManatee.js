@@ -14,15 +14,31 @@ UserManatee.init(
       }
     },
     user_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'user',
-          key: 'id'
-        }
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id'
+      }
       },
     count: {
-        type:DataTypes.INTEGER,
-        default: 0
+      type:DataTypes.INTEGER,
+      defaultValue: 0
+    },
+    accountantCost: {
+      type: DataTypes.INTEGER,
+      defaultValue:10
+    },
+    policeManateeCost: {
+      type: DataTypes.INTEGER,
+      defaultValue: 100
+    },
+    lawyerCost: {
+      type: DataTypes.INTEGER,
+      defaultValue: 500
+    },
+    unicornCost: {
+      type: DataTypes.INTEGER,
+      defaultValue: 1000
     }
   },
   {
