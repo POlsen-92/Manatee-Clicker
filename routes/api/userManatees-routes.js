@@ -45,13 +45,18 @@ router.post('/', async (req, res) => {
 });
 
 
-// DONE - update a UserManatee's count by its 
+// DONE - update a UserManatee's count by 1
 router.put('/', async (req, res) => {
+  console.log("===========MADE IT!=========")
   try {
+    console.log(req.body)
+    console.log(req.session.user.id)
     const usmanData = await UserManatee.update(req.body, {
-      count: count++,
+      count: ++count
+    },
+    {
       where: {
-        user_id:req.sessions.id,
+        user_id:req.session.user.id,
         manatee_id:req.body.manatee_id
       },
     });
@@ -62,6 +67,7 @@ router.put('/', async (req, res) => {
     res.status(200).json(usmanData);
   } catch (err) {
     res.status(500).json(err);
+    console.log(err)
   }
 });
 
