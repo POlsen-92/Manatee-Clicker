@@ -6,25 +6,24 @@ const deleteUser = document.getElementById('btnDel')
 chngeUN.addEventListener('submit', async (e) => {
     e.preventDefault()
 
-    const userObj={
-        username:document.querySelector('#newUN').value,
-        password:document.querySelector('#currentPW1').value
-    }
-
-    if(userObj.username && userObj.password){
-        fetch('/api/users/updateUN', {
+    const newUN = document.getElementById('newUN').value
+    const curPW = document.getElementById('currentPW1').value
+    
+    if(newUN && curPW){
+        const resp = await fetch('/api/users/updateUN', {
             method: 'PUT',
-            body: JSON.stringify(userObj),
+            body: JSON.stringify({username:newUN, password:curPW}),
             headers: { 'Content-Type': 'application/json' }
-        }).then(res=>{
-            if(res.ok){
-                console.log(res);
-                alert("Username has Been Changed")
-                location.replace('/settings')
-            } else {
-                alert('Something Went Wrong')
-            }
         })
+        if(resp.ok){
+            console.log(resp);
+            alert("Username has Been Changed")
+            location.replace('/settings')
+        } else {
+            alert('Something Went Wrong2')
+        }
+    } else {
+        alert('Something Went Wrong3')
     }
 });
 
@@ -33,15 +32,13 @@ chngeUN.addEventListener('submit', async (e) => {
 chngePW.addEventListener('submit', (e) => {
     e.preventDefault()
 
-    const userObj={
-        password:document.querySelector('#currentPW2').value,
-        newPassword:document.querySelector('#newPW').value
-    }
+    const currentPW = document.getElementById('currentPW2').value
+    const newPW = document.getElementById('newPW').value
 
-    if(userObj.password && userObj.newPassword){
+    if(currentPW && newPW){
         fetch('/api/users/updatePW', {
             method: 'PUT',
-            body: JSON.stringify(userObj),
+            body: JSON.stringify({password:currentPW, newPassword:newPW}),
             headers: { 'Content-Type': 'application/json' }
         }).then(res=>{
             if(res.ok){

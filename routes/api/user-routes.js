@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { Manatee, User, UserManatee} = require('../../models');
 const bcrypt = require("bcrypt");
+const session = require('express-session');
 
 // The `http://localhost:3000/api/users` endpoint
 
@@ -91,18 +92,23 @@ router.put("/updateUN", async (req, res)=> {
     try {
         const foundUser = await User.findOne({
             where:{
-                id:req.session.id
+                id:req.session.user.id
             }
         })
         if(!foundUser){
-            res.status(401).json({message:"Something Went Wrong"})
+            res.status(401).json({message:"Something Went Wrong1"})
         } else {
             if(bcrypt.compareSync(req.body.password,foundUser.password)){
-                const user = await User.update(
-                    {
-                        username: req.body.username,
-                    },
+                const user = await User.update({
+                    username:req.body.username,
+                }, {
+                    where: {id:req.session.user.id}
+                }
                 );
+                req.session.user = {
+                    username:req.body.username,
+                    id:foundUser.id
+                }
                 res.status(200).json(user);
             } else {
                 res.status(401).json({message:"incorrect Password"})
@@ -120,17 +126,19 @@ router.put("/updatePW", async (req, res)=> {
     try {
         const foundUser = await User.findOne({
             where:{
-                id:req.session.id
+                id:req.session.user.id
             }
         })
         if(!foundUser){
             res.status(401).json({message:"Something Went Wrong"})
         } else {
             if(bcrypt.compareSync(req.body.password,foundUser.password)){
-                const user = await User.update(
-                    {
-                        password: req.body.newPassword
-                    },
+                const newPassword = await bcrypt.hash(req.body.newPassword,5)
+                const user = await User.update({
+                    password:newPassword,
+                }, {
+                    where: {id:req.session.user.id}
+                },
                 );
                 res.status(200).json(user);
             } else {
@@ -175,7 +183,6 @@ router.post("/signup", async (req,res)=>{
             username:req.body.username,
             password:req.body.password
         })
-        res.json(newUser);
         UserManatee.bulkCreate([
               {
               user_id: newUser.id,
@@ -201,6 +208,11 @@ router.post("/signup", async (req,res)=>{
               individualHooks: true,
               returning: true,
             });
+            req.session.user = {
+                username:newUser.username,
+                id:newUser.id
+            }
+            res.json(newUser);
     }
     catch(err){
         console.log(err);
