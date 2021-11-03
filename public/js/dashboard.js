@@ -26,7 +26,7 @@ const onLoad = () => {
             const policemanateeLevel = data.manatees[1].user_manatee.count
             const unicornLevel = data.manatees[3].user_manatee.count
             const lawyerLevel = data.manatees[2].user_manatee.count
-            const clickValue = policemanateeLevel + accountantLevel+ unicornLevel+ lawyerLevel
+            const clickValue = (policemanateeLevel * 10) + accountantLevel + (unicornLevel* 100)+ (lawyerLevel * 50)
             manateeLevel.innerHTML = clickValue
             const lifetimePoints = data.lifetime_points
             lifetimePointsText.innerHTML = lifetimePoints
@@ -67,7 +67,8 @@ buyButton.forEach((el)=>{el.addEventListener("click", (event) => {
     event.preventDefault()
     const id = el.id
     console.log(el)
-    let cost = el.parentElement.lastElementChild.innerHTML
+    let cost = el.parentElement.lastElementChild.innerHTML * accountantLevel
+    console.log(cost)
     console.log(el.parentElement.lastElementChild.innerHTML)
     if (pointsOnHandText.value >= cost) {
             fetch(`/api/usermanatees/`, {
@@ -79,8 +80,6 @@ buyButton.forEach((el)=>{el.addEventListener("click", (event) => {
             })
             console.log("=============FETCH COMPLETE==========")
             pointsOnHandText.value= pointsOnHandText.value - cost
-            cost *= 2
-            console.log(cost)
         }
     }
 )})
