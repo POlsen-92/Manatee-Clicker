@@ -3,6 +3,7 @@ const router = express.Router();
 const { Manatee, User, UserManatee} = require('../../models');
 const bcrypt = require("bcrypt");
 const session = require('express-session');
+const sortArray = require('sort-array');
 
 // The `http://localhost:3000/api/users` endpoint
 
@@ -16,6 +17,28 @@ router.get("/", async (req,res)=>{
             res.status(200).json(userData)
     }
     catch(err) {
+        console.log(err);
+        res.status(500).json({message:"an error occured",err:err})
+    }
+})
+
+//GETS THE USERS IN DESC. ORDER BY LIFETIME SCORE
+
+router.get("/leaders", async (req,res)=>{
+    try{
+           
+        let usersArray = await User.findAll();
+
+        console.log(usersArray);
+        // this npm package will help us easily and efficiently sort our array by the user's lifetime score.
+        usersArray = sortArray(usersArray, {
+            by: 'lifetime_score',
+            order: 'desc'
+        });
+    //returning an array of users sorted in descending order by lifetime score
+    res.status(200).json(usersArray);
+    }
+    catch (err){
         console.log(err);
         res.status(500).json({message:"an error occured",err:err})
     }
@@ -255,5 +278,8 @@ router.delete("/delete", async (req,res)=>{
         res.status(500).json({message:"an error occured",err:err})
     }
 })
+
+
+
 
 module.exports = router;
