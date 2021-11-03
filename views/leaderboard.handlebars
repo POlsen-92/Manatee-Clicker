@@ -12,9 +12,9 @@
     <div class="container text-center text-white">
         <div class="row pt-5">
             <div class="col-lg-8 mx-auto text-info">
-                <h1 class="display-4">Welcome to the Manatee Tank!</h1>
+                <h1 class="display-3">Welcome to the Manatee Tank!</h1>
                 <a href="/dashboard">
-                    <p class="lead mb-0 display-2 text-info">PLAY!</p>
+                    <p class="lead mb-0 display-2" id="play">PLAY!</p>
                 </a>
             </div>
         </div>
@@ -25,13 +25,13 @@
                 <div class="table-responsive">
                     <table class="table table-fixed">
                         <thead>
-                            <tr>
-                                <th scope="col" class="col-3">#</th>
-                                <th scope="col" class="col-3">Username</th>
-                                <th scope="col" class="col-3">Lifetime Points</th>
+                            <tr class="text-center">
+                                {{!-- <th scope="col" class="col-3">#</th> --}}
+                                <th scope="col" class="col-6">Username</th>
+                                <th scope="col" class="col-6">Lifetime Points</th>
                             </tr>
                         </thead>
-                        <tbody id="leaderboard-content" class="text-dark">
+                        <tbody id="leaderboard-content">
                             <tr>
                                 {{!-- <th scope="row" class="col-2">1</th>
                                 <td class="col-2">{{#each user.username}} {{/each}}</td>
@@ -45,6 +45,6 @@
     </div>
     <div class="col-lg-8 mx-auto text-center">
         <a href="/about">
-            <p class="lead mb-0 display-6 text-info">About</p>
+            <p class="lead mb-0 display-6">About</p>
         </a>
     </div>
