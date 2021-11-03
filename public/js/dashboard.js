@@ -69,10 +69,11 @@ buyButton.forEach((el)=>{el.addEventListener("click", (event) => {
     let cost = el.parentElement.lastElementChild.innerHTML
     console.log(el.parentElement.lastElementChild.innerHTML)
     if (pointsOnHandText.value >= cost) {
-            fetch(`/api/usermanatees/`, {
+            fetch(`/api/usermanatees`, {
                 method: "PUT",
                 body: JSON.stringify({
                     manatee_id:id,
+                    count: count++
                 }),
                 headers:{"Content-Type":"application/json"}
             })
