@@ -31,7 +31,7 @@ const onLoad = () => {
         })
     }
 const update = ()=>{
-    fetch("/api/users/updatepoints", {
+        fetch("/api/users/updatepoints", {
         method: "PUT",
         body: JSON.stringify({
             points_on_hand: pointsOnHandText.value,
@@ -39,7 +39,13 @@ const update = ()=>{
         }),
         headers:{"Content-Type":"application/json"}
     })
+    .then(response=>response.json())
 }
+
+document.getElementById("save-button").addEventListener("click", ()=>{
+    update()
+    alert("Stats Saved!")
+})
 
 document.getElementById("click-button").addEventListener("click", ()=>{
     const power = manateeLevel.innerHTML
@@ -76,3 +82,4 @@ document.getElementById("click-button").addEventListener("click", ()=>{
 
 onLoad()
 
+window.setInterval(update, 5000)
