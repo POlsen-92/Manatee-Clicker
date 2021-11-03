@@ -4,7 +4,7 @@ const {User, Manatee, UserManatee} = require("../models");
 
 router.get("/dashboard", (req,res)=>{
     res.render("dashboard")
-})
+});
 
 router.get('/login', (req,res)=>{
     res.render('login')
@@ -12,6 +12,10 @@ router.get('/login', (req,res)=>{
 
 router.get('/settings', (req,res)=>{
     res.render('settings')
-})
+});
+
+router.get('/leaderboard', (req,res)=>{
+    res.render('leaderboard')
+});
 
 module.exports = router;
