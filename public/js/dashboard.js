@@ -66,6 +66,7 @@ document.getElementById("click-button").addEventListener("click", ()=>{
 buyButton.forEach((el)=>{el.addEventListener("click", (event) => {
     event.preventDefault()
     const id = el.id
+    console.log(el)
     let cost = el.parentElement.lastElementChild.innerHTML
     console.log(el.parentElement.lastElementChild.innerHTML)
     if (pointsOnHandText.value >= cost) {
@@ -78,7 +79,8 @@ buyButton.forEach((el)=>{el.addEventListener("click", (event) => {
             })
             console.log("=============FETCH COMPLETE==========")
             pointsOnHandText.value= pointsOnHandText.value - cost
-            cost = cost *2
+            cost *= 2
+            console.log(cost)
         }
     }
 )})
