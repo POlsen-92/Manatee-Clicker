@@ -11,6 +11,20 @@ let unicornLevel
 let lawyerLevel
 let clickValueOutside
 
+// RELOAD PAGE ON EVERY 5 CLICKS
+var timesClicked = 0
+const buttonOnScreen = document.querySelector(".button-on-screen")
+buttonOnScreen.addEventListener("click", ()=>{
+    console.log("button clicked")
+    timesClicked++
+    console.log(timesClicked)
+    if(timesClicked == 6){
+        location.reload()
+    }
+})
+
+
+
 // GRABS ALL API INFO, AND POPULATES THE PAGE WITH THE INFO
 const onLoad = () => {
     fetch("/api/users/info")
@@ -83,15 +97,6 @@ buyButton.forEach((el)=>{el.addEventListener("click", (event) => {
         }
     }
 )})
-
-var timesClicked = 0
-document.querySelector(".button-on-screen").addEventListener("click", ()=>{
-    timesClicked++
-})
-
-if(timesClicked = 5){
-    location.reload()
-}
 
 // window.setInterval(update, 5000)
 onLoad()
