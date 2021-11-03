@@ -1,5 +1,6 @@
 * {
     font-family: 'Chicle', cursive;
+    color: #ff33cc;
 }
 
 body {
@@ -148,4 +149,12 @@ img:active{
 .table-fixed thead>tr>th {
     float: left;
     position: relative;
+}
+
+#signup-text {
+    font-size: xx-large;
+}
+
+#login-text {
+    font-size: xx-large;
 }
