@@ -5,9 +5,13 @@ const manateeLevel = document.getElementById("manatee-level");
 const leaderboardPlace = document.getElementById("leaderboardPlace");
 const buyButton = document.querySelectorAll(".buy-button");
 let lifetimePointsText = document.getElementById("lifetime-points");
-
+let accountantLevel
+let policemanateeLevel
+let unicornLevel
+let lawyerLevel
 let clickValueOutside
-// grabs all api info, and puts all info on page when loaded
+
+// GRABS ALL API INFO, AND POPULATES THE PAGE WITH THE INFO
 const onLoad = () => {
     fetch("/api/users/info")
         .then(response => {
@@ -30,6 +34,8 @@ const onLoad = () => {
             pointsOnHandText.value = pointsOnHand
         })
     }
+
+// UPDATE() FUNCTION THAT SAVES THE STATS ON SCREEN TO THE CURRENT NUMBERS
 const update = ()=>{
         fetch("/api/users/updatepoints", {
         method: "PUT",
@@ -42,44 +48,40 @@ const update = ()=>{
     .then(response=>response.json())
 }
 
+// SAVE BUTTON THAT RUNS UPDATE()
 document.getElementById("save-button").addEventListener("click", ()=>{
     update()
     alert("Stats Saved!")
 })
 
+// MANATEE BUTTON THAT ADDS TO SCORE
 document.getElementById("click-button").addEventListener("click", ()=>{
-    const power = manateeLevel.innerHTML
+    const power = Number(manateeLevel.innerHTML)+1
     console.log(power)
-    lifetimePointsText.innerHTML = Number(lifetimePointsText.innerHTML) + Number(power)
-    pointsOnHandText.value = Number(pointsOnHandText.value) + Number(power)
+    lifetimePointsText.innerHTML = Number(lifetimePointsText.innerHTML) + (power)
+    pointsOnHandText.value = Number(pointsOnHandText.value) + (power)
 });
 
-// buyButton.forEach((el)=>{el.addEventListener("click", (event) => {
-//     event.preventDefault()
-//     const id = el.id
-//     console.log(id)
-//     if (poh >= (10 * (accountantLevel + 1))) {
-//         if (!accountant) {
-//             fetch("/api/manatees"), {
-//                 method: "POST",
-//                 body: JSON.stringify({
-//                     manatee_id: id,
-//                     count: 1
-//                 }),
-//                 headers:{"Content-Type":"application/json"}
-//             }
-//         } else {
-//             fetch(`/api/usermanatees/`, {
-//                 method: "PUT",
-//                 body: JSON.stringify({
-//                     manatee_id:id
-//                 }),
-//                 headers:{"Content-Type":"application/json"}
-//             })
-//         }
-//     }
-// })})
+// FUNCTION THAT HANDLES THE PURCHASE OF NEW MANATEES
+buyButton.forEach((el)=>{el.addEventListener("click", (event) => {
+    event.preventDefault()
+    const id = el.id
+    let cost = el.parentElement.lastElementChild.innerHTML
+    console.log(el.parentElement.lastElementChild.innerHTML)
+    if (pointsOnHandText.value >= cost) {
+            fetch(`/api/usermanatees`, {
+                method: "PUT",
+                body: JSON.stringify({
+                    manatee_id:id,
+                    count: 4
+                }),
+                headers:{"Content-Type":"application/json"}
+            })
+            console.log("=============FETCH COMPLETE==========")
+            pointsOnHandText.value= pointsOnHandText.value - cost
+            cost = cost *2
+        }
+    }
+)})
 
 onLoad()
-
-window.setInterval(update, 5000)
