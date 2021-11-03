@@ -73,7 +73,7 @@ buyButton.forEach((el)=>{el.addEventListener("click", (event) => {
                 method: "PUT",
                 body: JSON.stringify({
                     manatee_id:id,
-                    count: count++
+                    count: 4
                 }),
                 headers:{"Content-Type":"application/json"}
             })
