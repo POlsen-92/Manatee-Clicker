@@ -157,11 +157,10 @@ img:active {
     color: #ff33cc;
 }
 
-
-/* #signup-text {
-    font-size: xx-large;
+#signup-text {
+    font-size: 100px;
 }
 
 #login-text {
-    font-size: xx-large;
-} */
+    font-size: 100px;
+}
