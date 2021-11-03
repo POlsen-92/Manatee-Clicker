@@ -1,6 +1,39 @@
-<h1>Welcome to the Mantaee Tank!</h1>
-<h1>PLAY!</h1>
-
-{{!-- Leaderboard container --}}
-
-<h3>About</h3>
+    <div class="container text-center text-white">
+        <div class="row pt-5">
+            <div class="col-lg-8 mx-auto text-info">
+                <h1 class="display-4">Welcome to the Manatee Tank!</h1>
+                <a href="/dashboard">
+                    <p class="lead mb-0 display-2 text-info">PLAY!</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-7 mx-auto bg-light rounded shadow">
+                <div class="table-responsive">
+                    <table class="table table-fixed">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="col-3">#</th>
+                                <th scope="col" class="col-3">Username</th>
+                                <th scope="col" class="col-3">Lifetime Points</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row" class="col-2">1</th>
+                                <td class="col-2">{{#each user.username}} {{/each}}</td>
+                                <td class="col-2">{{#each user.lifetime_points}} {{/each}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 mx-auto text-center">
+        <a href="/about">
+            <p class="lead mb-0 display-6 text-info">About</p>
+        </a>
+    </div>
