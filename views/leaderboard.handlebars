@@ -1,3 +1,14 @@
+
+<h1>Welcome to the Mantaee Tank!</h1>
+<h1>PLAY!</h1>
+
+{{!-- Leaderboard container --}}
+<div class="container" id="leaderboard"></div>
+
+<h3>About</h3>
+
+<script type="text/javascript" src="/js/leaderboard.js"></script>
+
     <div class="container text-center text-white">
         <div class="row pt-5">
             <div class="col-lg-8 mx-auto text-info">
@@ -23,23 +34,8 @@
                         <tbody>
                             <tr>
                                 <th scope="row" class="col-2">1</th>
-                                <td class="col-2">POlsen92</td>
-                                <td class="col-2">500</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="col-2">2</th>
-                                <td class="col-2">chloeharris1</td>
-                                <td class="col-2">500</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="col-2">3</th>
-                                <td class="col-2">jmarq019</td>
-                                <td class="col-2">300</td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="col-2">4</th>
-                                <td class="col-2">Specsnstats</td>
-                                <td class="col-2">200</td>
+                                <td class="col-2">{{#each user.username}} {{/each}}</td>
+                                <td class="col-2">{{#each user.lifetime_points}} {{/each}}</td>
                             </tr>
                         </tbody>
                     </table>
