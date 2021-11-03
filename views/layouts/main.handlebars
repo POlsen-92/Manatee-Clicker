@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <title>Manatee Clicker</title>
 </head>
-<body class="bg-dark text-light">
+<body class="text-light">
     {{!-- {{#if logged_in --}}
     <div id="main">
         <button class="openbtn" onclick="openNav()">&#9776;</button>
@@ -25,6 +25,9 @@
 
     {{!-- {{/if --}}
     {{{body}}}
+<video autoplay muted loop id="background-video">
+<source src="/assets/smaller.mp4" type="video/mp4">
+</video>
 <audio id="audio" src="/assets/button-click.mp3" preload="auto"></audio>
 <script src="/js/main.js"></script>
 <script src="/js/logout.js"></script>

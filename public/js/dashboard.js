@@ -84,4 +84,6 @@ buyButton.forEach((el)=>{el.addEventListener("click", (event) => {
     }
 )})
 
+
+// window.setInterval(update, 5000)
 onLoad()
