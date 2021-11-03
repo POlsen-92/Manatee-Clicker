@@ -36,21 +36,24 @@ const onLoad = () => {
             const userId = data.id 
             tempId = userId
 
-            const accountantLevel = data.manatees[0].user_manatee.count
-            const policemanateeLevel = data.manatees[1].user_manatee.count
-            const unicornLevel = data.manatees[3].user_manatee.count
-            const lawyerLevel = data.manatees[2].user_manatee.count
-            const clickValue = (policemanateeLevel * 10) + accountantLevel + (unicornLevel* 100)+ (lawyerLevel * 50)
+            accountantLevel = data.manatees[0].user_manatee.count
+            policemanateeLevel = data.manatees[1].user_manatee.count
+            unicornLevel = data.manatees[3].user_manatee.count
+            lawyerLevel = data.manatees[2].user_manatee.count
+            clickValue = (policemanateeLevel * 10) + accountantLevel + (unicornLevel* 100)+ (lawyerLevel * 50)
             manateeLevel.innerHTML = clickValue
             const lifetimePoints = data.lifetime_points
             lifetimePointsText.innerHTML = lifetimePoints
             pointsOnHand = data.points_on_hand
             pointsOnHandText.value = pointsOnHand
+            
+            console.log(`manateebonus:${manateeLevel.innerHTML}`)
         })
     }
 
 // UPDATE() FUNCTION THAT SAVES THE STATS ON SCREEN TO THE CURRENT NUMBERS
 const update = ()=>{
+    // console.log()
         fetch("/api/users/updatepoints", {
         method: "PUT",
         body: JSON.stringify({
@@ -63,17 +66,18 @@ const update = ()=>{
 }
 
 // SAVE BUTTON THAT RUNS UPDATE()
-document.getElementById("save-button").addEventListener("click", ()=>{
-    update()
-    alert("Stats Saved!")
-})
+// document.getElementById("save-button").addEventListener("click", ()=>{
+//     update()
+//     alert("Stats Saved!")
+// })
 
 // MANATEE BUTTON THAT ADDS TO SCORE
 document.getElementById("click-button").addEventListener("click", ()=>{
     const power = Number(manateeLevel.innerHTML)+1
-    console.log(power)
+    console.log(`clickpower:${power}`)
     lifetimePointsText.innerHTML = Number(lifetimePointsText.innerHTML) + (power)
     pointsOnHandText.value = Number(pointsOnHandText.value) + (power)
+    update()
 });
 
 // FUNCTION THAT HANDLES THE PURCHASE OF NEW MANATEES
@@ -94,9 +98,12 @@ buyButton.forEach((el)=>{el.addEventListener("click", (event) => {
             })
             console.log("=============FETCH COMPLETE==========")
             pointsOnHandText.value= pointsOnHandText.value - cost
+            console.log(`cost:${cost}`)
+            update()
         }
     }
 )})
 
-// window.setInterval(update, 5000)
+
 onLoad()
+// window.setInterval(update, 5000)
