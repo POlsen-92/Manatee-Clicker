@@ -1,5 +1,14 @@
+* {
+    font-family: 'Chicle', cursive;
+    color: #ff33cc;
+}
+
 body {
     background-color: transparent;
+}
+
+.manatee-button {
+    /* border-color: #FFB6C1; */
 }
 
 #background-video {
@@ -11,7 +20,10 @@ body {
     z-index: -1
 }
 
-
+img:active{
+    transform:scale(1.2);
+    box-shadow:2px 2px 10px rgba(0,0,0,0.3);
+ }
 /* The sidebar menu */
 
 .sidebar {
@@ -138,3 +150,12 @@ body {
     float: left;
     position: relative;
 }
+
+
+/* #signup-text {
+    font-size: xx-large;
+}
+
+#login-text {
+    font-size: xx-large;
+} */
