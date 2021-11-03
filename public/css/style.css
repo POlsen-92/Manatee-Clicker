@@ -6,6 +6,10 @@ body {
     background-color: transparent;
 }
 
+.manatee-button {
+    /* border-color: #FFB6C1; */
+}
+
 #background-video {
     position: fixed;
     right: 0;
