@@ -18,30 +18,25 @@
   
   ## Usage
 
-  Our app is deployed through Heroku which you can access through this [link](), upon entering the website you will see the Leaderboard with all of our top users prominently displayed along with a Welcome line and Start Link. 
-  
-  <img src="images/ss_leaderboard.png" width="300px" alt="ScreenShot of our Leaderboard"> <br>
+  Our app is deployed through Heroku which you can access through this [link](), upon entering the website you will see the Leaderboard with all of our top users prominently displayed along with a Welcome line and Start Link.
   
   Below the Leaderboard will be an "About" link which, if clicked, will open to display a modal that introduces our dev team to the user.
 
-  <img src="images/ss_about.png" width="300px" alt="ScreenShot of our About Modal"> <br>
+  <img src="images/ss_leaderboard.png" width="300px" alt="ScreenShot of our Leaderboard"> <img src="images/ss_modal.png" width="300px" alt="ScreenShot of our About Modal"> <br>
 
   When one hits the "PLAY" Link the page changes to our Login screen where one can either Login to an existing account or Sign Up for a new account. 
-  
-  <img src="images/ss_login.png" width="300px" alt="ScreenShot of our Login"> <br>
 
   Upon Logging In or Signing Up they will then be taken to your dashboard where you'll see a score at the top of the screen with a large round button below. When a user clicks the button their score goes up by one point. Once they have ten points they can buy an Accountant Manatee which will increase their points per click to 2. The cost of another Accountant Manatee also increases. Similarly, a user is also able to buy a "PoliceManatee", "Judge Manatee" and the effervescent "Unicorn Manatee" for differing costs and click bonuses. 
 
   Below the manatee choices a user can see their available "Points on Hand" which they could use to buy more manatees and click bonuses. Below that is their LifeTime points which is going to be used to determine their place on the leaderboard
   
-  <img src="images/ss_dashboard.png" width="300px" alt="ScreenShot of our Dashboard"> <br>
+  <img src="images/ss_login.png" width="300px" alt="ScreenShot of our Login"> <img src="images/ss_dashboard.png" width="300px" alt="ScreenShot of our Dashboard"> <br>
 
-  If a user clicks the Navbar Icon in the top left of the page a navbar screen slides out to provide a list of choices. A User can choose to move to the "Dashboard", LeaderBoard", "Settings" or "Sign Out". Clicking the Leaderboard option will take them to the Leaderboard but now a signed in User will still have the navbar option to travel back to the dashboard. This isn't available when not signed in. 
+  If a user clicks the Navbar Icon in the top left of the page a navbar screen slides out to provide a list of choices. A User can choose to move to the "Dashboard", LeaderBoard", "Settings" or "Sign Out". Clicking the Leaderboard option will take them to the Leaderboard but now a signed in User will still have the navbar option to travel back to the dashboard. This isn't available when not signed in.
 
-  <img src="images/ss_navbar.png" width="300px" alt="ScreenShot of our NavBar"> <br>
+  If a User Clicks on the Settings they will be taken to a page where they have the option to update their account username or password and from there they can also delete their account entirely.
 
-  If a User Clicks on the Settings they will be taken to a page where they have the option to update their account username or password and from there they can also delete their account entirely. 
-
+  <img src="images/ss_nav.png" width="300px" alt="ScreenShot of our NavBar">
   <img src="images/ss_settings.png" width="300px" alt="ScreenShot of our Settings"> <br>
 
 
