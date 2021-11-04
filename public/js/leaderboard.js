@@ -2,7 +2,6 @@ const leaderboardEl = document.getElementById('leaderboard-content');
 
 // this function will get all users and sort them by lifetime score
 function getTopUsers(){
-           
         fetch('api/users/leaders', {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }

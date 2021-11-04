@@ -32,7 +32,7 @@ router.get("/leaders", async (req,res)=>{
         console.log(usersArray);
         // this npm package will help us easily and efficiently sort our array by the user's lifetime score.
         usersArray = sortArray(usersArray, {
-            by: 'lifetime_score',
+            by: 'lifetime_points',
             order: 'desc'
         });
     //returning an array of users sorted in descending order by lifetime score
