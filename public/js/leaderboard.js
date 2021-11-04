@@ -18,9 +18,8 @@ for (let j = 0; j < data.length; j++){
     let toplistContentEL = document.createElement('tr');
     //adding the content to the rows with the user's data
     toplistContentEL.innerHTML = `
-<th scope="row" class="col-3">${k}</th>
-<td class="col-3">${data[j].username}</td>
-<td class="col-3">${data[j].lifetime_points}</td>
+<td class="col-6">${data[j].username}</td>
+<td class="col-6">${data[j].lifetime_points}</td>
 `
 console.log(leaderboardEl)
 //appending the rows to the table body
