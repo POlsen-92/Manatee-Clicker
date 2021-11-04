@@ -111,8 +111,10 @@ img:active {
 /* Settings CSS */
 
 #settings h1 {
-    margin-top: 15px;
-    margin-left: 5px
+    /* margin-top: 15px; */
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: 120px;
 }
 
 #settings a {
@@ -121,7 +123,8 @@ img:active {
 }
 
 #settings-choices {
-    width: 80%;
+    /* width: 80%; */
+    width: 100%;
     margin: auto;
 }
 

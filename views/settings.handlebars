@@ -1,38 +1,65 @@
-<div id="settings">
-    <div> {{!-- have border bottom, span width of page --}} 
-        <h1>Settings</h1>
-    </div>
-    <div id="settings-choices">
-        <h5>Change Username</h5>
-            <div> {{!-- when change password is clicked this chngPass-Form slides down --}}
-                <form class="form" role="form" autocomplete="off" id="chngUN-form">
-                    <div class="form-group">
-                        <input type="text" class="form-control form-control-sm rounded-0" id="newUN" placeholder="New Username">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control form-control-sm rounded-0" id="currentPW1" placeholder="Password">
-                    </div>
-                    <button type="submit" class="btn btn-info btn-sm float-right mt-2" id="btnChngUN">Change Username</button>
-                    {{!-- <a href="javascript:void(0)" class="closebtn" onclick="closeUN()">&times;</a> --}}
-                </form>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 min-vh-100 d-flex flex-column justify-content-center">
+            <div class="row text-center" id="settings">
+                <div class="col-lg-6 col-md-8 mx-auto mt-2 pb-0"> {{!-- have border bottom, span width of page --}}
+                    <h1 class="mb-0 display-1 pb-0">Settings</h1>
+                </div>
             </div>
-            <br>
-        <h5>Change Password</h5>
-            <div> {{!-- when change password is clicked this chngPass-Form slides down --}}
-                <form class="form" role="form" autocomplete="off" id="chngPW-form">
-                    <div class="form-group">
-                        <input type="password" class="form-control form-control-sm rounded-0" id="currentPW2" placeholder="Current Password">
+            <div class="row">
+                <div class="col-lg-6 col-md-8 mx-auto mt-0 pb-5">
+                    <div id="settings-choices">
+                        <h5 class="mb-0 display-1 pb-3">Change Username</h5>
+                        <div class="card rounded shadow shadow-sm">
+                        </div>
+                        <div class="card-body"> {{!-- when change password is clicked this chngPass-Form slides down
+                            --}}
+                            <form class="form" role="form" autocomplete="off" id="chngUN-form">
+                                <div class="form-group pb-3">
+                                    <input type="text" class="form-control form-control-lg rounded-0" id="newUN"
+                                        placeholder="New Username">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-lg rounded-0"
+                                        id="currentPW1" placeholder="Password">
+                                </div>
+                                <button type="submit" class="btn btn-info btn-lg float-right mt-3" id="btnChngUN">Change
+                                    Username</button>
+                                {{!-- <a href="javascript:void(0)" class="closebtn" onclick="closeUN()">&times;</a>
+                                --}}
+                            </form>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control form-control-sm rounded-0" id="newPW" placeholder="New Password">
-                    </div>
-                    <button type="submit" class="btn btn-info btn-sm float-right mt-2" id="btnChngPW">Change Password</button>
-                    {{!-- <a href="javascript:void(0)" class="closebtn" onclick="closePW()">&times;</a> --}}
-                </form>
+                </div>
             </div>
-            <br>
-        <div class="text-center">
-        <button type="submit" class="btn btn-danger btn-sm float-right mt-2" id="btnDel">Delete Account</button>
+            <div class="row">
+                <div class="col-lg-6 col-md-8 mx-auto mt-2 pb-5">
+                    <h5 class="mb-0 display-1 pb-3">Change Password</h5>
+                    <div class="card rounded shadow shadow-sm">
+                    </div>
+                    <div class="card-body"> {{!-- when change password is clicked this chngPass-Form slides down
+                        --}}
+                        <form class="form" role="form" autocomplete="off" id="chngPW-form">
+                            <div class="form-group pb-3">
+                                <input type="password" class="form-control form-control-lg rounded-0" id="currentPW2"
+                                    placeholder="Current Password">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control form-control-lg rounded-0" id="newPW"
+                                    placeholder="New Password">
+                            </div>
+                            <button type="submit" class="btn btn-info btn-lg float-right mt-3" id="btnChngPW">Change
+                                Password</button>
+                            {{!-- <a href="javascript:void(0)" class="closebtn" onclick="closePW()">&times;</a>
+                            --}}
+                        </form>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-danger btn-lg float-right mt-2" id="btnDel">Delete
+                            Account</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
