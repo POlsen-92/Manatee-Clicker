@@ -7,6 +7,9 @@ router.get("/", (req,res)=>{
 });
 
 router.get("/dashboard", (req,res)=>{
+    if(!req.session.user){
+        return res.redirect("/leaderboard")
+    }
     res.render("dashboard")
 });
 
@@ -15,6 +18,9 @@ router.get('/login', (req,res)=>{
 });
 
 router.get('/settings', (req,res)=>{
+    if(!req.session.user){
+        return res.redirect("/leaderboard")
+    }
     res.render('settings')
 });
 
