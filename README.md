@@ -11,7 +11,7 @@
   - [Usage](#usage)
   - [Contributing](#contributing)
   - [License](#license)
-  - [Questions](#questions?)
+  - [Creators](#creators)
   
   ## Installation
   
