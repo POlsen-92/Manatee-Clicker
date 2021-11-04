@@ -124,9 +124,14 @@
   
   ## Creators
   
-  
-  <img src="" width="100px"> <br>
-  Contact Me, Paige at...
+  <img src="/images/jon_cp" width="100px"> <br>
+
+  [Github](https://github.com/Specs) 
+
+  [Email](Paige.El.Olsen@gmail.com)
+
+
+  <img src="/images/paige_cp" width="100px"> <br>
 
   [Github](https://github.com/POlsen-92) 
 
