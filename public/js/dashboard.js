@@ -64,7 +64,7 @@ const onLoad = () => {
             costAccountant.innerHTML = (accountantLevel+1) * 10
             costPolicemanatee.innerHTML = (policemanateeLevel+1) *1000
             costLawyer.innerHTML = (lawyerLevel+1) *100000
-            costUnicorn.innerHTML = (unicornLevel+1) *1000
+            costUnicorn.innerHTML = (unicornLevel+1) *10000000
 
         })
     }
