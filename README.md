@@ -3,7 +3,9 @@
   
   ## Description
   
-  Create a Manatee Clicking Game
+  Here you will find another ridiculously fun click game but instead of flappy birds, cookies or cats we give you the majestic Manatee!
+
+  Head to our Heroku app to sign up, play and get yourself on that leaderboard for all the world to see!
   
   ## Table Of Contents
   
@@ -11,20 +13,39 @@
   - [Usage](#usage)
   - [Contributing](#contributing)
   - [License](#license)
+  - [Credits](#credits)
   - [Creators](#creators)
   
-  ## Installation
-  
-  
-  
   ## Usage
+
+  Our app is deployed through Heroku which you can access through this [link](), upon entering the website you will see the Leaderboard with all of our top users prominently displayed along with a Welcome line and Start Link.
   
+  Below the Leaderboard will be an "About" link which, if clicked, will open to display a modal that introduces our dev team to the user.
+
+  <img src="images/ss_leaderboard.png" width="300px" alt="ScreenShot of our Leaderboard"> <img src="images/ss_modal.png" width="300px" alt="ScreenShot of our About Modal"> <br>
+
+  When one hits the "PLAY" Link the page changes to our Login screen where one can either Login to an existing account or Sign Up for a new account. 
+
+  Upon Logging In or Signing Up they will then be taken to your dashboard where you'll see a score at the top of the screen with a large round button below. When a user clicks the button their score goes up by one point. Once they have ten points they can buy an Accountant Manatee which will increase their points per click to 2. The cost of another Accountant Manatee also increases. Similarly, a user is also able to buy a "PoliceManatee", "Judge Manatee" and the effervescent "Unicorn Manatee" for differing costs and click bonuses. 
+
+  Below the manatee choices a user can see their available "Points on Hand" which they could use to buy more manatees and click bonuses. Below that is their LifeTime points which is going to be used to determine their place on the leaderboard
   
-  
-  ![ScreenShot of My Program]()
+  <img src="images/ss_login.png" width="300px" alt="ScreenShot of our Login"> <img src="images/ss_dashboard.png" width="300px" alt="ScreenShot of our Dashboard"> <br>
+
+  If a user clicks the Navbar Icon in the top left of the page a navbar screen slides out to provide a list of choices. A User can choose to move to the "Dashboard", LeaderBoard", "Settings" or "Sign Out". Clicking the Leaderboard option will take them to the Leaderboard but now a signed in User will still have the navbar option to travel back to the dashboard. This isn't available when not signed in.
+
+  If a User Clicks on the Settings they will be taken to a page where they have the option to update their account username or password and from there they can also delete their account entirely.
+
+  <img src="images/ss_nav.png" width="300px" alt="ScreenShot of our NavBar">
+  <img src="images/ss_settings.png" width="300px" alt="ScreenShot of our Settings"> <br>
+
 
   ## Contributing
-  
+<details>
+  <summary> 
+ Click to See Contributor Code of Conduct
+  </summary>
+
   ### Contributor Covenant Code of Conduct
   
   #### Our Pledge
@@ -96,8 +117,9 @@
   For answers to common questions about this code of conduct, see the FAQ at
   https://www.contributor-covenant.org/faq. Translations are available
   at https://www.contributor-covenant.org/translations.
+  </details>
   
-  
+  <br>
   ## License
   
   MIT License
@@ -122,17 +144,40 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
   
+  ## Credits
+  Built with [JavaScript](https://www.javascript.com/), [MySQL](https://www.mysql.com/) and [Handlebars](https://handlebarsjs.com/)
+
+  Deployed with [Heroku](https://heroku.com)
+
+  Run using [Node.js](https://nodejs.org/en/), [Express.js](https://expressjs.com/), [MySQL2](https://www.npmjs.com/package/mysql2) and [Sequelize](https://www.npmjs.com/package/sequelize)
+
+  Other NPMs Used
+  - [dotenv](https://www.npmjs.com/package/dotenv)
+  - [bcrypt](https://www.npmjs.com/package/bcrypt)
+  - [path](https://www.npmjs.com/package/path)
+  - [scorerank](https://www.npmjs.com/package/scorerank)
+  - [sort-array](https://www.npmjs.com/package/sort-array)
+  - [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize)
+  - [express-handlebars](https://www.npmjs.com/package/express-handlebars)
+  - [express-session](https://www.npmjs.com/package/express-session)
+
   ## Creators
   
-  <img src="/images/jon_cp" width="100px"> <br>
-
-  [Github](https://github.com/Specs) 
-
-  [Email](Paige.El.Olsen@gmail.com)
+  ### Jon Newman - Project Manager, Full-Stack Developer
+  <img src="images/jon_cp.jpg" width="100px" alt="coverphoto of Jon"> <br>
+  Contact at [Github](https://github.com/specsnstats) or [Email](specsnstats@gmail.com)
 
 
-  <img src="/images/paige_cp" width="100px"> <br>
+  ### Paige Olsen - GitHub Coordinator, Back-End Developer
+  <img src="images/paige_cp.jpg" width="100px" alt="coverphoto of Paige"> <br>
+  Contact at [Github](https://github.com/POlsen-92) or [Email](Paige.El.Olsen@gmail.com)
 
-  [Github](https://github.com/POlsen-92) 
 
-  [Email](Paige.El.Olsen@gmail.com)
+  ### Chloe Harris - Front End Developer(CSS/HandleBars)
+<img src="images/chloe_cp.jpg" width="100px" alt="coverphoto of Chloe"> <br>
+  Contact at [Github](https://github.com/chloeharris1) or [Email](chloe.a.harris17@gmail.com)
+
+
+  ### Jorge Barragan - Front End Developer(Javascript)
+<img src="images/jorge_cp.jpg" width="100px" alt="coverphoto of Jorge"> <br>
+  Contact at [Github](https://github.com/jmarq019) or [Email](jmarq19@outlook.com)
