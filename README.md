@@ -40,10 +40,17 @@
 
   <img src="images/ss_navbar.png" width="300px" alt="ScreenShot of our NavBar"> <br>
 
-  If a User Clicks on the Settings they will be taken to a page where
+  If a User Clicks on the Settings they will be taken to a page where they have the option to update their account username or password and from there they can also delete their account entirely. 
+
+  <img src="images/ss_settings.png" width="300px" alt="ScreenShot of our Settings"> <br>
+
 
   ## Contributing
-  
+<details>
+  <summary> 
+ Click to See Contributor Code of Conduct
+  </summary>
+
   ### Contributor Covenant Code of Conduct
   
   #### Our Pledge
@@ -115,8 +122,9 @@
   For answers to common questions about this code of conduct, see the FAQ at
   https://www.contributor-covenant.org/faq. Translations are available
   at https://www.contributor-covenant.org/translations.
+  </details>
   
-  
+  <br>
   ## License
   
   MIT License
