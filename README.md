@@ -13,11 +13,8 @@
   - [License](#license)
   - [Creators](#creators)
   
-  ## Installation
-  
-  
-  
   ## Usage
+
   
   
   
@@ -122,17 +119,37 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
   
+  ## Credits
+  Built with [JavaScript](https://www.javascript.com/), [MySQL](https://www.mysql.com/) and [Handlebars](https://handlebarsjs.com/)
+
+  Deployed with [Heroku](https://heroku.com)
+
+  Run using [Node.js](https://nodejs.org/en/), [Express.js](https://expressjs.com/), [MySQL2](https://www.npmjs.com/package/mysql2) and [Sequelize](https://www.npmjs.com/package/sequelize)
+
+  Other NPMs Used
+  - [dotenv](https://www.npmjs.com/package/dotenv)
+  - [bcrypt]()
+  - [path]()
+  - [scorerank]
+  - [connect-session-sequelize]
+
   ## Creators
   
-  <img src="/images/jon_cp" width="100px"> <br>
-
-  [Github](https://github.com/Specs) 
-
-  [Email](Paige.El.Olsen@gmail.com)
+  ### Jon Newman - Project Manager, Full-Stack Developer
+  <img src="images/jon_cp.jpg" width="100px"> <br>
+  Contact at [Github](https://github.com/specsnstats) or [Email](specsnstats@gmail.com)
 
 
-  <img src="/images/paige_cp" width="100px"> <br>
+  ### Paige Olsen - GitHub Coordinator, Back-End Developer
+  <img src="images/paige_cp.jpg" width="100px"> <br>
+  Contact at [Github](https://github.com/POlsen-92) or [Email](Paige.El.Olsen@gmail.com)
 
-  [Github](https://github.com/POlsen-92) 
 
-  [Email](Paige.El.Olsen@gmail.com)
+  ### Chloe Harris - Front End Developer(CSS/HandleBars)
+<img src="images/chloe_cp.jpg" width="100px"> <br>
+  Contact at [Github](https://github.com/chloeharris1) or [Email](chloe.a.harris17@gmail.com)
+
+
+  ### Jorge Barragan - Front End Developer(Javascript)
+<img src="images/jorge_cp.jpg" width="100px"> <br>
+  Contact at [Github](https://github.com/jmarq019) or [Email](jmarq19@outlook.com)
