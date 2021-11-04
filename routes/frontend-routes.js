@@ -2,6 +2,10 @@ const express = require("express");
 const router = express.Router();
 const {User, Manatee, UserManatee} = require("../models");
 
+router.get("/", (req,res)=>{
+    res.redirect("/leaderboard")
+});
+
 router.get("/dashboard", (req,res)=>{
     res.render("dashboard")
 });
