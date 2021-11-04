@@ -26,10 +26,9 @@ router.get("/", async (req,res)=>{
 
 router.get("/leaders", async (req,res)=>{
     try{
-           
         let usersArray = await User.findAll();
 
-        console.log(usersArray);
+        // console.log(usersArray);
         // this npm package will help us easily and efficiently sort our array by the user's lifetime score.
         usersArray = sortArray(usersArray, {
             by: 'lifetime_points',
