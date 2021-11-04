@@ -10,7 +10,7 @@ router.get("/dashboard", (req,res)=>{
     if(!req.session.user){
         return res.redirect("/leaderboard")
     }
-    res.render("dashboard")
+    res.render("dashboard", {logged_in: req.session.logged_in})
 });
 
 router.get('/login', (req,res)=>{
@@ -21,11 +21,11 @@ router.get('/settings', (req,res)=>{
     if(!req.session.user){
         return res.redirect("/leaderboard")
     }
-    res.render('settings')
+    res.render('settings', {logged_in: req.session.logged_in})
 });
 
 router.get('/leaderboard', (req,res)=>{
-    res.render('leaderboard')
+    res.render('leaderboard', {logged_in: req.session.logged_in})
 });
 
 module.exports = router;
