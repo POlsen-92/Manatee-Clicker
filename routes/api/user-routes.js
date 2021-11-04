@@ -91,14 +91,18 @@ router.post("/signin", async (req,res)=>{
         if(!foundUser){
             req.session.destroy();
             res.status(401).json({message:"incorrect username or password"})
-        } else {
-            if(bcrypt.compareSync(req.body.password,foundUser.password)){
-                req.session.user = {
+            } 
+            else {
+                if(bcrypt.compareSync(req.body.password,foundUser.password)){
+                    
+                    req.session.logged_in = true;
+                    req.session.user = {
                     username:foundUser.username,
                     id:foundUser.id
                 }
-                res.json(foundUser) 
-            } else {
+                res.json(foundUser)
+                } 
+                else {
                 res.status(401).json({message:"incorrect username or password"})
                 req.session.destroy();
                 }
@@ -242,7 +246,12 @@ router.post("/signup", async (req,res)=>{
                 username:newUser.username,
                 id:newUser.id
             }
-            res.json(newUser);
+            req.session.save(() => {
+                req.session.user_id = newUser.id;
+                req.session.logged_in = true;
+          
+                res.status(200).json(newUser);
+              })
     }
     catch(err){
         console.log(err);
@@ -253,6 +262,7 @@ router.post("/signup", async (req,res)=>{
 //SIGN OUT OF USER PROFILE 
 
 router.post("/signout",(req,res) => {
+    req.session.logged_in = false;
     req.session.destroy()
     res.status(200).json({message:"signed out successful"})
 })
