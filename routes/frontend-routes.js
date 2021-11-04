@@ -3,7 +3,7 @@ const router = express.Router();
 const {User, Manatee, UserManatee} = require("../models");
 
 router.get("/", (req,res)=>{
-    res.redirect("/leaderboard", {logged_in: req.session.logged_in})
+    res.redirect("/leaderboard")
 });
 
 router.get("/dashboard", (req,res)=>{
@@ -12,7 +12,7 @@ router.get("/dashboard", (req,res)=>{
 });
 
 router.get('/login', (req,res)=>{
-    res.render('login', {logged_in: req.session.logged_in})
+    res.render('login')
 });
 
 router.get('/settings', (req,res)=>{
