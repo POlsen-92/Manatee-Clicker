@@ -24,22 +24,6 @@ UserManatee.init(
       type:DataTypes.INTEGER,
       defaultValue: 0
     },
-    // accountantCost: {
-    //   type: DataTypes.INTEGER,
-    //   defaultValue:10
-    // },
-    // policeManateeCost: {
-    //   type: DataTypes.INTEGER,
-    //   defaultValue: 100
-    // },
-    // lawyerCost: {
-    //   type: DataTypes.INTEGER,
-    //   defaultValue: 500
-    // },
-    // unicornCost: {
-    //   type: DataTypes.INTEGER,
-    //   defaultValue: 1000
-    // }
   },
   {
     sequelize,

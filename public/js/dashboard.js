@@ -83,14 +83,6 @@ const update = ()=>{
     .then(response=>response.json())
 }
 
-
-
-// SAVE BUTTON THAT RUNS UPDATE()
-// document.getElementById("save-button").addEventListener("click", ()=>{
-//     update()
-//     alert("Stats Saved!")
-// })
-
 // MANATEE BUTTON THAT ADDS TO SCORE
 document.getElementById("click-button").addEventListener("click", ()=>{
     const power = Number(manateeLevel.innerHTML)+1
@@ -134,4 +126,3 @@ buyButton.forEach((el)=>{el.addEventListener("click", (event) => {
 
 
 onLoad()
-// window.setInterval(update, 5000)
