@@ -120,8 +120,14 @@ buyButton.forEach((el)=>{el.addEventListener("click", (event) => {
             console.log("=============FETCH COMPLETE==========")
             pointsOnHandText.value= pointsOnHandText.value - cost
             console.log(`cost:${cost}`)
-            update()
-            onLoad()
+            const upload = async () => {
+                let up = await update(1,1);
+                let on = await onLoad(2,2);
+
+                let final = up + on;
+                return final;
+            }
+            upload();
         }
     }
 )})
