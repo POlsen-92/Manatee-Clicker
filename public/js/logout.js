@@ -9,7 +9,7 @@ signOut.addEventListener('click', async (e) => {
         headers: { 'Content-Type': 'application/json' }
     })
     if(signout.ok){
-        console.log(signout)
+        alert("You Have Been Signed Out")
         location.replace('/login')
     } else {
         alert("something went wrong")

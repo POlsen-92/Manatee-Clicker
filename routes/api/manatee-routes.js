@@ -28,7 +28,6 @@ router.get('/:id', async (req, res) => {
       res.status(404).json({ message: 'No Manatee found with that id!' });
       return;
     }
-
     res.status(200).json(manateeData);
   } catch (err) {
     res.status(500).json(err);
@@ -44,7 +43,6 @@ router.post('/', async (req, res) => {
     })
     res.status(200).json(manateeData)
   } catch(err) {
-      console.log(err);
       res.status(400).json({ message: "an error occured", err: err });
     };
 });

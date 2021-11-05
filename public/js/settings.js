@@ -16,7 +16,6 @@ chngeUN.addEventListener('submit', async (e) => {
             headers: { 'Content-Type': 'application/json' }
         })
         if(resp.ok){
-            console.log(resp);
             alert("Username has Been Changed")
             location.replace('/settings')
         } else {
@@ -42,7 +41,6 @@ chngePW.addEventListener('submit', (e) => {
             headers: { 'Content-Type': 'application/json' }
         }).then(res=>{
             if(res.ok){
-                console.log(res);
                 alert("Password Has Been Changed")
                 location.replace('/settings')
             } else {
@@ -62,7 +60,6 @@ deleteUser.addEventListener('click', (e) => {
             headers: { 'Content-Type': 'application/json' }
         }).then(res=>{
             if(res.ok){
-                console.log(res);
                 alert("Account Has Been Deleted")
                 location.replace('/login')
             } else {

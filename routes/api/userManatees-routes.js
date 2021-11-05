@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { UserManatee,Manatee, User } = require('../../models');
+const { UserManatee } = require('../../models');
 
 
 
@@ -38,7 +38,6 @@ router.post('/', async (req, res) => {
     })
     res.status(200).json(usmanData)
   } catch(err) {
-      console.log(err);
       res.status(400).json({ message: "an error occured", err: err });
     };
 });
@@ -70,7 +69,6 @@ router.put('/', async (req, res) => {
     res.status(200).json(usmanData);
   } catch (err) {
     res.status(500).json(err);
-    console.log(err)
   }
 });
 
