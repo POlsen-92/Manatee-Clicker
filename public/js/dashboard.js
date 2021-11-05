@@ -14,19 +14,19 @@ let lawyerLevel
 let clickValueOutside
 
 // RELOAD PAGE ON EVERY 5 CLICKS
-var timesClicked = 0
-const buttonOnScreen = document.querySelectorAll(".button-on-screen")
-buttonOnScreen.forEach(button=>{
+// var timesClicked = 0
+// const buttonOnScreen = document.querySelectorAll(".button-on-screen")
+// buttonOnScreen.forEach(button=>{
 
-    button.addEventListener("click", ()=>{
-        console.log("button clicked")
-        timesClicked++
-        console.log(timesClicked)
-        if(timesClicked == 5){
-            location.reload()
-        }
-    })
-})
+//     button.addEventListener("click", ()=>{
+//         console.log("button clicked")
+//         timesClicked++
+//         console.log(timesClicked)
+//         if(timesClicked == 5){
+//             location.reload()
+//         }
+//     })
+// })
 
 // GRABS ALL API INFO, AND POPULATES THE PAGE WITH THE INFO
 const onLoad = () => {
