@@ -13,6 +13,7 @@ Manatee.init(
     },
     {
         sequelize,
+        order: ['id', 'DESC'],
         timestamps: false,
         freezeTableName: true,
         underscored: true,
