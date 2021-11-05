@@ -2,6 +2,8 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection');
 
+//The UserManatee model is a relational table of the User and Manatee models
+
 class UserManatee extends Model {}
 
 UserManatee.init(
