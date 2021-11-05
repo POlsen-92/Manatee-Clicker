@@ -18,7 +18,7 @@
   
   ## Usage
 
-  Our app is deployed through Heroku which you can access through this [link](), upon entering the website you will see the Leaderboard with all of our top users prominently displayed along with a Welcome line and Start Link.
+  Our app is deployed through Heroku which you can access through this [link](https://manatee-clicker.herokuapp.com/leaderboard), upon entering the website you will see the Leaderboard with all of our top users prominently displayed along with a Welcome line and Start Link.
   
   Below the Leaderboard will be an "About" link which, if clicked, will open to display a modal that introduces our dev team to the user.
 
