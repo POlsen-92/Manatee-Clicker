@@ -7,6 +7,9 @@ router.get('/', async (req, res) => {
   try {
     const manateeData = await Manatee.findAll({
       include: [{ model: User }],
+      order: [
+        ['id', 'ASC']
+      ]
     });
     res.status(200).json(manateeData);
   } catch (err) {

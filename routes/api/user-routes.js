@@ -10,6 +10,7 @@ router.get("/", async (req,res)=>{
     try {
         const userData = await User.findAll({
                 include:[{model:Manatee}],
+                order: [[{model:Manatee}, 'id', 'ASC']]
             })
             res.status(200).json(userData)
     }
@@ -22,11 +23,17 @@ router.get("/", async (req,res)=>{
 //GETS THE USERS IN DESC. ORDER BY LIFETIME SCORE
 router.get("/leaders", async (req,res)=>{
     try{
-        let usersArray = await User.findAll();
-        usersArray = sortArray(usersArray, {
-            by: 'lifetime_points',
-            order: 'desc'
+        let usersArray = await User.findAll({
+            order: [['lifetime_points', 'DESC']]
         });
+
+        // console.log(usersArray);
+        // this npm package will help us easily and efficiently sort our array by the user's lifetime score.
+        // usersArray = sortArray(usersArray, {
+        //     by: 'lifetime_points',
+        //     order: 'desc'
+        // });
+    //returning an array of users sorted in descending order by lifetime score
     res.status(200).json(usersArray);
     }
     catch (err){
@@ -40,6 +47,7 @@ router.get('/info', async (req, res) => {
     try {
       const userData = await User.findByPk(req.session.user.id, {
         include: [{ model: Manatee }],
+        order: [[{model:Manatee}, 'id', 'ASC']]
       });
       if (!userData) {
         res.status(404).json({ message: 'No User found with that id!' });
@@ -58,6 +66,7 @@ router.get('/:id', async (req, res) => {
     try {
       const userData = await User.findByPk(req.params.id, {
         include: [{ model: Manatee }],
+        order: [[{model:Manatee}, 'id', 'ASC']]
       });
       if (!userData) {
         res.status(404).json({ message: 'No User found with that id!' });
@@ -177,6 +186,7 @@ router.put("/updatepoints", async (req,res)=>{
     try {
         const foundUser = await User.findByPk(req.session.user.id, {
           include: [{ model: Manatee }],
+          order: [[{model:Manatee}, 'id', 'ASC']]
         });
         if (!foundUser) {
           res.status(404).json({ message: 'No User found with that id!' });

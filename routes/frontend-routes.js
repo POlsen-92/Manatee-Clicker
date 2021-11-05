@@ -17,10 +17,10 @@ router.get("/dashboard", (req,res)=>{
 
 //Render the login page, after user login, redirect to leaderboard
 router.get('/login', (req,res)=>{
-    res.render('login')
-    if(!req.session.user){
-        return res.redirect("/leaderboard")
+    if(req.session.user){
+        return res.redirect("/dashboard")
     }
+    res.render('login')
 });
 
 //If the user is logged in, render the settings, otherwise redirect to the leaderboard

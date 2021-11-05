@@ -1,14 +1,14 @@
+/* MAIN AND UNIVERSAL */
+
 * {
     font-family: 'Chicle', cursive;
     color: #ff33cc;
+    letter-spacing: 1.5px;
 }
+
 
 body {
     background-color: transparent;
-}
-
-.manatee-button {
-    /* border-color: #FFB6C1; */
 }
 
 #background-video {
@@ -25,8 +25,15 @@ img:active {
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* DASHBOARD */
+#poh-text {
+    background-color: rgba(73, 73, 73, 0.514);
+    font-size: 20px;
+}
 
-/* The sidebar menu */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* NAVBAR */
 
 .sidebar {
     height: 100%;
@@ -39,7 +46,7 @@ img:active {
     /* Stay on top */
     top: 0;
     left: 0px;
-    background-color: #111;
+    background-color: #050A30;
     /* Black*/
     overflow-x: hidden;
     /* Disable horizontal scroll */
@@ -55,8 +62,8 @@ img:active {
 .sidebar a {
     padding: 5px 5px 5px 20px;
     text-decoration: none;
-    font-size: 16px;
-    color: #818181;
+    font-size: 18px;
+    color: #ff33cc;
     display: block;
     transition: 0.3s;
 }
@@ -65,7 +72,7 @@ img:active {
 /* When you mouse over the navigation links, change their color */
 
 .sidebar a:hover {
-    color: #f1f1f1;
+    color: #B1D4E0;
 }
 
 
@@ -88,14 +95,14 @@ img:active {
     left: 5px;
     font-size: 15px;
     cursor: pointer;
-    background-color: #111;
-    color: white;
+    background-color: #050A30;
+    color: #ff33cc;
     padding: 10px 15px;
     border: none;
 }
 
 .openbtn:hover {
-    background-color: #444;
+    background-color: #B1D4E0;
 }
 
 
@@ -107,8 +114,8 @@ img:active {
     padding: 20px;
 }
 
-
-/* Settings CSS */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* SETTINGS */
 
 #settings h1 {
     /* margin-top: 15px; */
@@ -135,6 +142,13 @@ img:active {
     font-size: 25px;
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* LEADERBOARD */
+
+#ldrbrd {
+    background-color: #fefefe
+}
+
 .table-fixed tbody {
     height: 300px;
     overflow-y: scroll;
@@ -154,11 +168,15 @@ img:active {
 .table-fixed thead>tr>th {
     float: left;
     position: relative;
+    font-size: 18px;
 }
 
 #play {
     color: #ff33cc;
 }
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* LOGIN */
 
 #signup-text {
     font-size: 100px;
@@ -168,41 +186,66 @@ img:active {
     font-size: 100px;
 }
 
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* MODAL */
 /* The Modal (background) */
+
 .modal-stuff {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
     left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-  /* Modal Content/Box */
-  .modal-stuff-content {
+    top: -50px;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.486);
+    /* Black w/ opacity */
+}
+
+
+/* Modal Content/Box */
+
+.modal-stuff-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto;
+    /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-  }
-  
-  /* The Close Button */
-  .stuff-close {
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+}
+
+
+/* The Close Button */
+
+.stuff-close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
-  
-  .stuff-close:hover,
-  .stuff-close:focus {
+}
+
+.stuff-close:hover,
+.stuff-close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
-  }
+}
+
+#lb-header {
+    font-size: 24px;
+}
+
+#dashboard-stats {
+    font-size: 20px;
+}
