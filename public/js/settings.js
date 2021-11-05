@@ -56,17 +56,20 @@ chngePW.addEventListener('submit', (e) => {
 
 deleteUser.addEventListener('click', (e) => {
     e.preventDefault()
-
-    fetch('/api/users/delete', {
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' }
-    }).then(res=>{
-        if(res.ok){
-            console.log(res);
-            alert("Account Has Been Deleted")
-            location.replace('/login')
-        } else {
-            alert('something went wrong')
-        }
-    })
+    if (window.confirm("Do You Really Want To Delete Your Account?")) {
+        fetch('/api/users/delete', {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' }
+        }).then(res=>{
+            if(res.ok){
+                console.log(res);
+                alert("Account Has Been Deleted")
+                location.replace('/login')
+            } else {
+                alert('Something Went Wrong')
+            }
+        }) 
+      } else {
+          alert("Account Was Not Deleted")
+      }
 })
