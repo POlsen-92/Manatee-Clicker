@@ -15,7 +15,6 @@ loginForm.addEventListener('submit', async (e) => {
         })
 
         if(resp.ok){
-            console.log(resp);
             location.replace('/dashboard')
         } else {
             alert('Your username or password is not correct!')
