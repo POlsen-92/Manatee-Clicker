@@ -105,6 +105,7 @@ img:active {
     color: #ff33cc;
     padding: 10px 15px;
     border: none;
+    border-radius: 3px;
 }
 
 .openbtn:hover {
@@ -248,7 +249,7 @@ img:active {
 /* The Close Button */
 
 .stuff-close {
-    color: #aaa;
+    color: #ff33cc;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -256,7 +257,7 @@ img:active {
 
 .stuff-close:hover,
 .stuff-close:focus {
-    color: black;
+    color: #B1D4E0;
     text-decoration: none;
     cursor: pointer;
 }
