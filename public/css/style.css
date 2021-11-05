@@ -1,14 +1,14 @@
+/* MAIN AND UNIVERSAL */
+
 * {
     font-family: 'Chicle', cursive;
     color: #ff33cc;
+    letter-spacing: 1.5px;
 }
+
 
 body {
     background-color: transparent;
-}
-
-.manatee-button {
-    /* border-color: #FFB6C1; */
 }
 
 #background-video {
@@ -25,8 +25,15 @@ img:active {
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* DASHBOARD */
+#poh-text {
+    background-color: rgba(73, 73, 73, 0.514);
+    font-size: 20px;
+}
 
-/* The sidebar menu */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* NAVBAR */
 
 .sidebar {
     height: 100%;
@@ -107,8 +114,8 @@ img:active {
     padding: 20px;
 }
 
-
-/* Settings CSS */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* SETTINGS */
 
 #settings h1 {
     /* margin-top: 15px; */
@@ -135,6 +142,13 @@ img:active {
     font-size: 25px;
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* LEADERBOARD */
+
+#ldrbrd {
+    background-color: #fefefe
+}
+
 .table-fixed tbody {
     height: 300px;
     overflow-y: scroll;
@@ -154,11 +168,15 @@ img:active {
 .table-fixed thead>tr>th {
     float: left;
     position: relative;
+    font-size: 18px;
 }
 
 #play {
     color: #ff33cc;
 }
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* LOGIN */
 
 #signup-text {
     font-size: 100px;
@@ -169,9 +187,8 @@ img:active {
 }
 
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* MODAL */
-
-
 /* The Modal (background) */
 
 .modal-stuff {
@@ -182,7 +199,7 @@ img:active {
     z-index: 1;
     /* Sit on top */
     left: 0;
-    top: 0;
+    top: -50px;
     width: 100%;
     /* Full width */
     height: 100%;
@@ -191,7 +208,7 @@ img:active {
     /* Enable scroll if needed */
     background-color: rgb(0, 0, 0);
     /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.486);
     /* Black w/ opacity */
 }
 

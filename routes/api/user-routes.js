@@ -5,10 +5,7 @@ const bcrypt = require("bcrypt");
 const session = require('express-session');
 const sortArray = require('sort-array');
 
-// The `http://localhost:3000/api/users` endpoint
-
 //FIND ALL USERS
-
 router.get("/", async (req,res)=>{
     try {
         const userData = await User.findAll({
@@ -24,7 +21,6 @@ router.get("/", async (req,res)=>{
 })
 
 //GETS THE USERS IN DESC. ORDER BY LIFETIME SCORE
-
 router.get("/leaders", async (req,res)=>{
     try{
         let usersArray = await User.findAll({
@@ -215,7 +211,6 @@ router.put("/updatepoints", async (req,res)=>{
 })
 
 //SIGN UP USER
-
 router.post("/signup", async (req,res)=>{
     // req.session.destroy();
     try {
@@ -266,7 +261,6 @@ router.post("/signup", async (req,res)=>{
 })
 
 //SIGN OUT OF USER PROFILE 
-
 router.post("/signout",(req,res) => {
     req.session.logged_in = false;
     req.session.destroy()
@@ -274,7 +268,6 @@ router.post("/signout",(req,res) => {
 })
 
 //DELETE USER
-
 router.delete("/delete", async (req,res)=>{
     try{
         const delUser = await User.destroy({
@@ -294,8 +287,5 @@ router.delete("/delete", async (req,res)=>{
         res.status(500).json({message:"an error occured",err:err})
     }
 })
-
-
-
 
 module.exports = router;

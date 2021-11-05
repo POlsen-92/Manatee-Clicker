@@ -28,16 +28,6 @@ let clickValueOutside
 //     })
 // })
 
-
-// push info outside of the function to use and change it
-// based off of the level of each manatee, determine the cost of that manatee for the user
-// save that cost to a variable
-// display that cost onto the page
-// use that cost in the second function for deducting Points on Hand
-
-
-
-
 // GRABS ALL API INFO, AND POPULATES THE PAGE WITH THE INFO
 const onLoad = () => {
     fetch("/api/users/info")
