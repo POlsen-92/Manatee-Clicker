@@ -1,6 +1,8 @@
 const Sequelize = require('sequelize');
 require('dotenv').config();
 
+//This middleware connects our server to our SQL database.
+
 let sequelize;
 
 if (process.env.JAWSDB_URL) {

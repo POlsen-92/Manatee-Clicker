@@ -2,6 +2,8 @@ const User = require("./User");
 const Manatee = require("./Manatee");
 const UserManatee = require("./UserManatee");
 
+//Users and Manatees have a many-to-many relationship
+
 User.belongsToMany(Manatee,{
     through: UserManatee,
     unique: false,

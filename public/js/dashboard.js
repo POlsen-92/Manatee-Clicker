@@ -14,28 +14,19 @@ let lawyerLevel
 let clickValueOutside
 
 // RELOAD PAGE ON EVERY 5 CLICKS
-var timesClicked = 0
-const buttonOnScreen = document.querySelectorAll(".button-on-screen")
-buttonOnScreen.forEach(button=>{
-    button.addEventListener("click", ()=>{
-        console.log("button clicked")
-        timesClicked++
-        console.log(timesClicked)
-        if(timesClicked == 5){
-            location.reload()
-        }
-    })
-})
+// var timesClicked = 0
+// const buttonOnScreen = document.querySelectorAll(".button-on-screen")
+// buttonOnScreen.forEach(button=>{
 
-
-// push info outside of the function to use and change it
-// based off of the level of each manatee, determine the cost of that manatee for the user
-// save that cost to a variable
-// display that cost onto the page
-// use that cost in the second function for deducting Points on Hand
-
-
-
+//     button.addEventListener("click", ()=>{
+//         console.log("button clicked")
+//         timesClicked++
+//         console.log(timesClicked)
+//         if(timesClicked == 5){
+//             location.reload()
+//         }
+//     })
+// })
 
 // GRABS ALL API INFO, AND POPULATES THE PAGE WITH THE INFO
 const onLoad = () => {
@@ -50,9 +41,9 @@ const onLoad = () => {
 
             accountantLevel = data.manatees[0].user_manatee.count
             policemanateeLevel = data.manatees[1].user_manatee.count
-            unicornLevel = data.manatees[3].user_manatee.count
             lawyerLevel = data.manatees[2].user_manatee.count
-            clickValue = (policemanateeLevel * 10) + accountantLevel + (unicornLevel* 100)+ (lawyerLevel * 100000)
+            unicornLevel = data.manatees[3].user_manatee.count
+            clickValue = accountantLevel + (policemanateeLevel * 10) + (unicornLevel * 100)+ (lawyerLevel * 1000)
 
             manateeLevel.innerHTML = clickValue
             const lifetimePoints = data.lifetime_points
@@ -60,10 +51,10 @@ const onLoad = () => {
             pointsOnHand = data.points_on_hand
             pointsOnHandText.value = pointsOnHand
             
-            costAccountant.innerHTML = (accountantLevel+1) * 10
-            costPolicemanatee.innerHTML = (policemanateeLevel+1) *1000
-            costLawyer.innerHTML = (lawyerLevel+1) *100000
-            costUnicorn.innerHTML = (unicornLevel+1) *10000000
+            costAccountant.innerHTML = (accountantLevel+1) * 10;
+            costPolicemanatee.innerHTML = (policemanateeLevel+1) *100;
+            costLawyer.innerHTML = (lawyerLevel+1) *1000;
+            costUnicorn.innerHTML = (unicornLevel+1) *10000;
 
         })
     }
@@ -99,7 +90,7 @@ buyButton.forEach((el)=>{el.addEventListener("click", (event) => {
 
     console.log("Cost = "+cost)
     console.log("Points on Hand = " +pointsOnHandText.value)
-    if (Number(pointsOnHandText.value) > cost) {
+    if (Number(pointsOnHandText.value) >= cost) {
         console.log("========STARTING FETCH============")
             fetch(`/api/usermanatees`, {
                 method: "PUT",
