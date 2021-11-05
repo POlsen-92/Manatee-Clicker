@@ -1,16 +1,16 @@
 let pointsOnHandText = document.getElementById("poh-text");
 let costAccountant = document.getElementById("cost-accountant");
 let costPolicemanatee = document.getElementById("cost-policeman");
-let costLawyer = document.getElementById("cost-lawyer");
-let costUnicorn = document.getElementById("cost-unicorn");
+let costJudge = document.getElementById("cost-judge");
+let costRainbow = document.getElementById("cost-rainbow");
 const manateeLevel = document.getElementById("manatee-level");
 const leaderboardPlace = document.getElementById("leaderboardPlace");
 const buyButton = document.querySelectorAll(".buy-button");
 let lifetimePointsText = document.getElementById("lifetime-points");
 let accountantLevel
 let policemanateeLevel
-let unicornLevel
-let lawyerLevel
+let judgeLevel
+let rainbowLevel
 let clickValueOutside
 
 // GRABS ALL API INFO, AND POPULATES THE PAGE WITH THE INFO
@@ -25,9 +25,9 @@ const onLoad = () => {
 
             accountantLevel = data.manatees[0].user_manatee.count
             policemanateeLevel = data.manatees[1].user_manatee.count
-            lawyerLevel = data.manatees[2].user_manatee.count
-            unicornLevel = data.manatees[3].user_manatee.count
-            clickValue = accountantLevel + (policemanateeLevel * 10) + (unicornLevel * 100)+ (lawyerLevel * 1000)
+            judgeLevel = data.manatees[2].user_manatee.count
+            rainbowLevel = data.manatees[3].user_manatee.count
+            clickValue = accountantLevel + (policemanateeLevel * 10) + (judgeLevel * 100) + (rainbowLevel * 1000)
 
             manateeLevel.innerHTML = clickValue
             const lifetimePoints = data.lifetime_points
@@ -37,8 +37,8 @@ const onLoad = () => {
             
             costAccountant.innerHTML = (accountantLevel+1) * 10;
             costPolicemanatee.innerHTML = (policemanateeLevel+1) *100;
-            costLawyer.innerHTML = (lawyerLevel+1) *1000;
-            costUnicorn.innerHTML = (unicornLevel+1) *10000;
+            costJudge.innerHTML = (judgeLevel+1) *1000;
+            costRainbow.innerHTML = (rainbowLevel+1) *10000;
 
         })
     }
