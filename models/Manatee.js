@@ -1,6 +1,8 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
+//The Manatee model structures the data for the game's collectible Manatees
+
 class Manatee extends Model { }
 
 Manatee.init(
