@@ -13,6 +13,7 @@ Manatee.init(
     },
     {
         sequelize,
+        orderBy: ['id', 'ASC'],
         timestamps: false,
         freezeTableName: true,
         underscored: true,
