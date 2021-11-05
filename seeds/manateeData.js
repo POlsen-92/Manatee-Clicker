@@ -3,16 +3,20 @@ const { Manatee } = require('../models');
 const seedManatees = async () => {
     const manateeData = await Manatee.bulkCreate([
         {
-            name:"Accountant",
+            id: 1,
+            name:"Accountant Manatee"
         },
         {
-            name:"PoliceMan",
+            id: 2,
+            name:"PoliceManatee",
         },
         {
-            name:"Lawyer",
+            id: 3,
+            name:"Judge Manatee",
         },
         {
-            name:"Unicorn",
+            id: 4,
+            name:"Rainbow Manatee",
         },
     ],{
         individualHooks:true
