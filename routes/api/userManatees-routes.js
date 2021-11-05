@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const { UserManatee,Manatee, User } = require('../../models');
 
-// The `http://localhost:3000/api/usermanatees` endpoint
 
-// DONE - find all UserManatees. be sure to include its associated User and Manatee data
+
+//Find all UserManatees. be sure to include its associated User and Manatee data
 router.get('/', async (req, res) => {
   try {
     const usmanData = await UserManatee.findAll();
@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// DONE - find a single Manatee by its `id`. be sure to include its associated User data
+//Find a single Manatee by its `id`. be sure to include its associated User data
 router.get('/:id', async (req, res) => {
   try {
     const usmanData = await UserManatee.findByPk(req.params.id);
@@ -29,13 +29,12 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// DONE - create a new UserManatee
+//Create a new UserManatee
 router.post('/', async (req, res) => {
   try {
     const usmanData = await UserManatee.create({
       user_id:req.body.user_id,
       manatee_id:req.body.manatee_id
-      // score_requirements: req.body.score
     })
     res.status(200).json(usmanData)
   } catch(err) {
@@ -45,9 +44,8 @@ router.post('/', async (req, res) => {
 });
 
 
-// DONE - update a UserManatee's count by 1
+//Update a UserManatee's count by 1
 router.put('/', async (req, res) => {
-  console.log("===========MADE IT!=========")
   try {
     const userManatee = await UserManatee.findOne({
       where:{
@@ -76,7 +74,7 @@ router.put('/', async (req, res) => {
   }
 });
 
-// DONE - delete a UserManatee by its `id` value
+//Delete a UserManatee by its `id` value
 router.delete('/:id', async (req, res) => {
     try {
       const usmanData = await UserManatee.destroy({

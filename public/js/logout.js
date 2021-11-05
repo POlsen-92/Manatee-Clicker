@@ -1,5 +1,6 @@
 const signOut = document.getElementById('signoutbtn')
 
+//This script enables the signout functionality 
 signOut.addEventListener('click', async (e) => {
     e.preventDefault()
 
