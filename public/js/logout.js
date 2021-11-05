@@ -1,5 +1,6 @@
 const signOut = document.getElementById('signoutbtn')
 
+//This script enables the signout functionality 
 signOut.addEventListener('click', async (e) => {
     e.preventDefault()
 
@@ -8,7 +9,7 @@ signOut.addEventListener('click', async (e) => {
         headers: { 'Content-Type': 'application/json' }
     })
     if(signout.ok){
-        console.log(signout)
+        alert("You Have Been Signed Out")
         location.replace('/login')
     } else {
         alert("something went wrong")

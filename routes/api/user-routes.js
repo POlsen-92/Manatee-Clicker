@@ -3,12 +3,8 @@ const router = express.Router();
 const { Manatee, User, UserManatee} = require('../../models');
 const bcrypt = require("bcrypt");
 const session = require('express-session');
-const sortArray = require('sort-array');
-
-// The `http://localhost:3000/api/users` endpoint
 
 //FIND ALL USERS
-
 router.get("/", async (req,res)=>{
     try {
         const userData = await User.findAll({
@@ -18,30 +14,19 @@ router.get("/", async (req,res)=>{
             res.status(200).json(userData)
     }
     catch(err) {
-        console.log(err);
         res.status(500).json({message:"an error occured",err:err})
     }
 })
 
 //GETS THE USERS IN DESC. ORDER BY LIFETIME SCORE
-
 router.get("/leaders", async (req,res)=>{
     try{
         let usersArray = await User.findAll({
             order: [['lifetime_points', 'DESC']]
         });
-
-        // console.log(usersArray);
-        // this npm package will help us easily and efficiently sort our array by the user's lifetime score.
-        // usersArray = sortArray(usersArray, {
-        //     by: 'lifetime_points',
-        //     order: 'desc'
-        // });
-    //returning an array of users sorted in descending order by lifetime score
     res.status(200).json(usersArray);
     }
     catch (err){
-        console.log(err);
         res.status(500).json({message:"an error occured",err:err})
     }
 })
@@ -61,7 +46,6 @@ router.get('/info', async (req, res) => {
     } 
     catch (err) {
       res.status(500).json(err);
-      console.log(err)
     }
   });
 
@@ -113,7 +97,6 @@ router.post("/signin", async (req,res)=>{
             }
         }
     catch(err) {
-         console.log(err);
         res.status(500).json(err);
     }
 })
@@ -147,7 +130,6 @@ router.put("/updateUN", async (req, res)=> {
             }
         }
     catch(err) {
-         console.log(err);
         res.status(500).json(err);
     }
 })
@@ -178,7 +160,6 @@ router.put("/updatePW", async (req, res)=> {
             }
         }
     catch(err) {
-         console.log(err);
         res.status(500).json(err);
     }
 })
@@ -206,15 +187,14 @@ router.put("/updatepoints", async (req,res)=>{
             }
         }
         )}
+        res.status(200).json({message:"User Updated!"})
       } 
       catch (err) {
         res.status(500).json(err);
-        console.log(err)
       }
 })
 
 //SIGN UP USER
-
 router.post("/signup", async (req,res)=>{
     // req.session.destroy();
     try {
@@ -259,13 +239,11 @@ router.post("/signup", async (req,res)=>{
               })
     }
     catch(err){
-        console.log(err);
         res.status(500).json({message:"an error occured",err:err})
     }
 })
 
 //SIGN OUT OF USER PROFILE 
-
 router.post("/signout",(req,res) => {
     req.session.logged_in = false;
     req.session.destroy()
@@ -273,7 +251,6 @@ router.post("/signout",(req,res) => {
 })
 
 //DELETE USER
-
 router.delete("/delete", async (req,res)=>{
     try{
         const delUser = await User.destroy({
@@ -289,12 +266,8 @@ router.delete("/delete", async (req,res)=>{
         req.session.destroy()
     }
     catch(err){
-        console.log(err);
         res.status(500).json({message:"an error occured",err:err})
     }
 })
-
-
-
 
 module.exports = router;

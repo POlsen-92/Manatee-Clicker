@@ -13,31 +13,6 @@ let unicornLevel
 let lawyerLevel
 let clickValueOutside
 
-// RELOAD PAGE ON EVERY 5 CLICKS
-var timesClicked = 0
-const buttonOnScreen = document.querySelectorAll(".button-on-screen")
-buttonOnScreen.forEach(button=>{
-
-    button.addEventListener("click", ()=>{
-        console.log("button clicked")
-        timesClicked++
-        console.log(timesClicked)
-        if(timesClicked == 5){
-            location.reload()
-        }
-    })
-})
-
-
-// push info outside of the function to use and change it
-// based off of the level of each manatee, determine the cost of that manatee for the user
-// save that cost to a variable
-// display that cost onto the page
-// use that cost in the second function for deducting Points on Hand
-
-
-
-
 // GRABS ALL API INFO, AND POPULATES THE PAGE WITH THE INFO
 const onLoad = () => {
     fetch("/api/users/info")
@@ -45,7 +20,6 @@ const onLoad = () => {
             return response.json();
         })
         .then(data => {
-            console.log(data)
             const userId = data.id 
             tempId = userId
 
@@ -70,8 +44,7 @@ const onLoad = () => {
     }
 
 // UPDATE() FUNCTION THAT SAVES THE STATS ON SCREEN TO THE CURRENT NUMBERS
-const update = ()=>{
-    // console.log()
+const update = () =>{
         fetch("/api/users/updatepoints", {
         method: "PUT",
         body: JSON.stringify({
@@ -80,13 +53,14 @@ const update = ()=>{
         }),
         headers:{"Content-Type":"application/json"}
     })
-    .then(response=>response.json())
+    .then(response=>{
+        onLoad();
+    })
 }
 
 // MANATEE BUTTON THAT ADDS TO SCORE
 document.getElementById("click-button").addEventListener("click", ()=>{
     const power = Number(manateeLevel.innerHTML)+1
-    console.log(`clickpower:${power}`)
     lifetimePointsText.innerHTML = Number(lifetimePointsText.innerHTML) + (power)
     pointsOnHandText.value = Number(pointsOnHandText.value) + (power)
     update()
@@ -98,10 +72,7 @@ buyButton.forEach((el)=>{el.addEventListener("click", (event) => {
     const id = el.id    
     let cost = Number(el.parentElement.lastElementChild.innerHTML)
 
-    console.log("Cost = "+cost)
-    console.log("Points on Hand = " +pointsOnHandText.value)
     if (Number(pointsOnHandText.value) >= cost) {
-        console.log("========STARTING FETCH============")
             fetch(`/api/usermanatees`, {
                 method: "PUT",
                 body: JSON.stringify({
@@ -109,17 +80,8 @@ buyButton.forEach((el)=>{el.addEventListener("click", (event) => {
                 }),
                 headers:{"Content-Type":"application/json"}
             })
-            console.log("=============FETCH COMPLETE==========")
             pointsOnHandText.value= pointsOnHandText.value - cost
-            console.log(`cost:${cost}`)
-            const upload = async () => {
-                let up = await update(1,1);
-                let on = await onLoad(2,2);
-
-                let final = up + on;
-                return final;
-            }
-            upload();
+            update()
         }
     }
 )})

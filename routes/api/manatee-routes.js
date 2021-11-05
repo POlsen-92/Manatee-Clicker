@@ -1,9 +1,8 @@
 const router = require('express').Router();
 const { Manatee, User } = require('../../models');
 
-// The `http://localhost:3000/api/manatees` endpoint
 
-// DONE - find all Manatees. be sure to include its associated User data
+// Find all Manatees. be sure to include its associated User data
 router.get('/', async (req, res) => {
   try {
     const manateeData = await Manatee.findAll({
@@ -18,7 +17,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// DONE - find a single Manatee by its `id`. be sure to include its associated User data
+// Find a single Manatee by its `id`. be sure to include its associated User data
 router.get('/:id', async (req, res) => {
   try {
     const manateeData = await Manatee.findByPk(req.params.id, {
@@ -29,14 +28,13 @@ router.get('/:id', async (req, res) => {
       res.status(404).json({ message: 'No Manatee found with that id!' });
       return;
     }
-
     res.status(200).json(manateeData);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// DONE - create a new Manatee
+// Create a new Manatee
 router.post('/', async (req, res) => {
   try {
     const manateeData = await Manatee.create({
@@ -45,13 +43,12 @@ router.post('/', async (req, res) => {
     })
     res.status(200).json(manateeData)
   } catch(err) {
-      console.log(err);
       res.status(400).json({ message: "an error occured", err: err });
     };
 });
 
 
-// DONE - update a Manatee's score requirements or name by its `id` value 
+// Update a Manatee's score requirements or name by its `id` value 
 router.put('/:id', async (req, res) => {
   try {
     const manateeData = await Manatee.update(req.body, {
@@ -69,7 +66,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// DONE - delete a Manatee by its `id` value
+// Delete a Manatee by its `id` value
 router.delete('/:id', async (req, res) => {
     try {
       const manateeData = await Manatee.destroy({
