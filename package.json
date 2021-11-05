@@ -27,8 +27,6 @@
     "express-session": "^1.17.2",
     "mysql2": "^2.3.2",
     "path": "^0.12.7",
-    "scorerank": "^0.2.1",
-    "sequelize": "^6.8.0",
-    "sort-array": "^4.1.4"
+    "sequelize": "^6.8.0"
   }
 }
