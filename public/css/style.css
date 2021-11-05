@@ -235,11 +235,11 @@ img:active {
 /* Modal Content/Box */
 
 .modal-stuff-content {
-    background-color: #fefefe;
+    background-color: #050A30;
     margin: 15% auto;
     /* 15% from the top and centered */
     padding: 20px;
-    border: 1px solid #888;
+    border: 1px solid #ff33cc;
     width: 80%;
     /* Could be more or less, depending on screen size */
 }
@@ -268,8 +268,3 @@ img:active {
 #dashboard-stats {
     font-size: 20px;
 }
-
-
-/* #leaderboard-row {
-    background-color: #050A30;
-} */
