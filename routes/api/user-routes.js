@@ -3,7 +3,6 @@ const router = express.Router();
 const { Manatee, User, UserManatee} = require('../../models');
 const bcrypt = require("bcrypt");
 const session = require('express-session');
-const sortArray = require('sort-array');
 
 //FIND ALL USERS
 router.get("/", async (req,res)=>{
