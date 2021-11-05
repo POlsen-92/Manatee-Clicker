@@ -51,9 +51,10 @@ function updateMusicCookie()
                 played = true;
         }
     }
-
     else {
     setCookie('timePlayed', song.currentTime);
     }
 }
 setInterval(updateMusicCookie,1000);
+
+// MUSIC PLAYER

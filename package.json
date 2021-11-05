@@ -25,6 +25,7 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.3.4",
     "express-session": "^1.17.2",
+    "jplayer": "^2.9.2",
     "mysql2": "^2.3.2",
     "path": "^0.12.7",
     "scorerank": "^0.2.1",
