@@ -13,12 +13,19 @@ let unicornLevel
 let lawyerLevel
 let clickValueOutside
 
+// FUNCTION THAT PLAYS SOUND ON CLICK
+const playSound = ()=>{
+    var sound = document.getElementById("audio");
+    sound.play()
+}
+
 // RELOAD PAGE ON EVERY 5 CLICKS
 var timesClicked = 0
 const buttonOnScreen = document.querySelectorAll(".button-on-screen")
 buttonOnScreen.forEach(button=>{
 
     button.addEventListener("click", ()=>{
+        playSound()
         console.log("button clicked")
         timesClicked++
         console.log(timesClicked)
