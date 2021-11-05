@@ -206,6 +206,7 @@ router.put("/updatepoints", async (req,res)=>{
             }
         }
         )}
+        res.status(200).json({message:"User Updated!"})
       } 
       catch (err) {
         res.status(500).json(err);

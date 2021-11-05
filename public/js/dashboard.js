@@ -14,19 +14,19 @@ let lawyerLevel
 let clickValueOutside
 
 // RELOAD PAGE ON EVERY 5 CLICKS
-var timesClicked = 0
-const buttonOnScreen = document.querySelectorAll(".button-on-screen")
-buttonOnScreen.forEach(button=>{
+// var timesClicked = 0
+// const buttonOnScreen = document.querySelectorAll(".button-on-screen")
+// buttonOnScreen.forEach(button=>{
 
-    button.addEventListener("click", ()=>{
-        console.log("button clicked")
-        timesClicked++
-        console.log(timesClicked)
-        if(timesClicked == 5){
-            location.reload()
-        }
-    })
-})
+//     button.addEventListener("click", ()=>{
+//         console.log("button clicked")
+//         timesClicked++
+//         console.log(timesClicked)
+//         if(timesClicked == 5){
+//             location.reload()
+//         }
+//     })
+// })
 
 
 // push info outside of the function to use and change it
