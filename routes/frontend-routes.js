@@ -15,7 +15,7 @@ router.get("/dashboard", (req,res)=>{
 
 router.get('/login', (req,res)=>{
     if(req.session.user){
-        return res.redirect("/leaderboard")
+        return res.redirect("/dashboard")
     }
     res.render('login')
 });
