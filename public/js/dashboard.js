@@ -12,20 +12,26 @@ let policemanateeLevel
 let unicornLevel
 let lawyerLevel
 let clickValueOutside
+const music = document.getElementById("music");
+console.log(music.volume)
+music.volume=0.0
+console.log(music.volume)
+
 
 // FUNCTION THAT PLAYS SOUND ON CLICK
-const playSound = ()=>{
-    var sound = document.getElementById("audio");
-    sound.play()
-}
+// const playSound = ()=>{
+//     var sound = document.getElementById("audio");
+//     var sound2 = document.getElementById("audio2");
+//     sound.play();
+//     sound2.play();
+// }
 
 // RELOAD PAGE ON EVERY 5 CLICKS
 var timesClicked = 0
 const buttonOnScreen = document.querySelectorAll(".button-on-screen")
 buttonOnScreen.forEach(button=>{
-
+    playSound()
     button.addEventListener("click", ()=>{
-        playSound()
         console.log("button clicked")
         timesClicked++
         console.log(timesClicked)
