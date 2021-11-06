@@ -40,7 +40,7 @@
   background-color: #3a2a45; }
 
 .jp-audio {
-  width: 201px;
+  width: 281px;
   padding: 20px; }
 
 .jp-audio-stream {
@@ -283,7 +283,7 @@ div.jp-seeking-bg {
 
 .jp-progress {
   background: url("/css/skin/jplayer.pink.flag.jpg") 0px -240px no-repeat;
-  width: 197px;
+  width: 240px;
   height: 13px;
   padding: 0 2px 2px 2px;
   margin-bottom: 4px;
