@@ -25,6 +25,7 @@ img:active {
 }
 
 #rainbow-manatee {
+    position: relative;
     z-index: -2;
 }
 
