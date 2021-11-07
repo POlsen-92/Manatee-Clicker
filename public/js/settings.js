@@ -19,10 +19,10 @@ chngeUN.addEventListener('submit', async (e) => {
             alert("Username has Been Changed")
             location.replace('/settings')
         } else {
-            alert('Something Went Wrong2')
+            alert('Your Password was Incorrect')
         }
     } else {
-        alert('Something Went Wrong3')
+        alert('Something Went Wrong')
     }
 });
 
@@ -44,7 +44,7 @@ chngePW.addEventListener('submit', (e) => {
                 alert("Password Has Been Changed")
                 location.replace('/settings')
             } else {
-                alert('Something Went Wrong')
+                alert('Your Password Was Incorrect')
             }
         })
     }
