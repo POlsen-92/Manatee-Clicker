@@ -11,7 +11,7 @@ let accountantLevel
 let policemanateeLevel
 let judgeLevel
 let rainbowLevel
-let clickValueOutside
+let level
 
 // GRABS ALL API INFO, AND POPULATES THE PAGE WITH THE INFO
 const onLoad = () => {
@@ -27,29 +27,18 @@ const onLoad = () => {
             policemanateeLevel = data.manatees[1].user_manatee.count
             judgeLevel = data.manatees[2].user_manatee.count
             rainbowLevel = data.manatees[3].user_manatee.count
-            clickValue = accountantLevel + (policemanateeLevel * 10) + (judgeLevel * 100) + (rainbowLevel * 1000)
+            level = accountantLevel + (policemanateeLevel * 10) + (judgeLevel * 100) + (rainbowLevel * 1000)
 
-            manateeLevel.innerHTML = clickValue
+            manateeLevel.innerHTML = level
             const lifetimePoints = data.lifetime_points
             lifetimePointsText.innerHTML = lifetimePoints
             pointsOnHand = data.points_on_hand
             pointsOnHandText.value = pointsOnHand
             
             costAccountant.innerHTML = (accountantLevel+1) * 10;
-            costPolicemanatee.innerHTML = (policemanateeLevel+1) *100;
-            costJudge.innerHTML = (judgeLevel+1) *1000;
-            costRainbow.innerHTML = (rainbowLevel+1) *10000;
-
-        manateeLevel.innerHTML = clickValue
-        const lifetimePoints = data.lifetime_points
-        lifetimePointsText.innerHTML = lifetimePoints
-        pointsOnHand = data.points_on_hand
-        pointsOnHandText.value = pointsOnHand
-        
-        costAccountant.innerHTML = (accountantLevel + 1) * 10;
-        costPolicemanatee.innerHTML = (policemanateeLevel + 1) *100;
-        costLawyer.innerHTML = (lawyerLevel + 1) *1000;
-        costUnicorn.innerHTML = (unicornLevel + 1) *10000;
+            costPolicemanatee.innerHTML = (policemanateeLevel+1) * 100;
+            costJudge.innerHTML = (judgeLevel+1) * 10000;
+            costRainbow.innerHTML = (rainbowLevel+1) * 1000000;
     })
 }
 
@@ -70,10 +59,9 @@ const update = () => {
 
 // MANATEE BUTTON THAT ADDS TO SCORE
 document.getElementById("click-button").addEventListener("click", ()=>{
-    const power = Number(manateeLevel.innerHTML) - (rainbowLevel * 100) + 1
-    console.log(power)
-    lifetimePointsText.innerHTML = Number(lifetimePointsText.innerHTML) + (power)
-    pointsOnHandText.value = Number(pointsOnHandText.value) + (power)
+    const clickValue = Number(manateeLevel.innerHTML) - (rainbowLevel * 100) + 1
+    lifetimePointsText.innerHTML = Number(lifetimePointsText.innerHTML) + (clickValue)
+    pointsOnHandText.value = Number(pointsOnHandText.value) + (clickValue)
     update()
 });
 
@@ -82,7 +70,6 @@ const autoclick = () => {
     const clickpersec = rainbowLevel
     lifetimePointsText.innerHTML = Number(lifetimePointsText.innerHTML) + (clickpersec)
     pointsOnHandText.value = Number(pointsOnHandText.value) + (clickpersec)
-    console.log(clickpersec)
     update()
 }
 
