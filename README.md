@@ -36,8 +36,7 @@
 
   If a User Clicks on the Settings they will be taken to a page where they have the option to update their account username or password and from there they can also delete their account entirely.
 
-  <img src="images/ss_nav.png" width="300px" alt="ScreenShot of our NavBar">
-  <img src="images/ss_settings.png" width="300px" alt="ScreenShot of our Settings"> <br>
+  <img src="images/ss_nav.png" width="300px" alt="ScreenShot of our NavBar"> <img src="images/ss_settings.png" width="300px" alt="ScreenShot of our Settings"> <br>
 
   The new technology we used is an directly installed plugin called jPlayer. This allowed us to format the audio file in our app so that it matched our style and persisted through each screen. In our audio we have "Dire Dire Docks" for your relaxation.
   ## Contributing
