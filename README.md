@@ -26,7 +26,7 @@
 
   When one hits the "PLAY" Link the page changes to our Login screen where one can either Login to an existing account or Sign Up for a new account. 
 
-  Upon Logging In or Signing Up they will then be taken to your dashboard where you'll see a score at the top of the screen with a large round button below. When a user clicks the button their score goes up by one point. Once they have ten points they can buy an Accountant Manatee which will increase their points per click to 2. The cost of another Accountant Manatee also increases. Similarly, a user is also able to buy a "PoliceManatee", "Judge Manatee" and the effervescent "Unicorn Manatee" for differing costs and click bonuses. 
+  Upon Logging In or Signing Up they will then be taken to your dashboard where you'll see a score at the top of the screen with a large round button below. When a user clicks the button their score goes up by one point. Once they have ten points they can buy an Accountant Manatee which will increase their points per click to 2. The cost of another Accountant Manatee also increases. Similarly, a user is also able to buy a "PoliceManatee", "Judge Manatee" and the effervescent "Rainbow Manatee" for differing costs and click bonuses. The accountant, police and judge add points per click while the rainbow manatee adds an autoclicker where a user will gain a point per second for every rainbow manatee they have.
 
   Below the manatee choices a user can see their available "Points on Hand" which they could use to buy more manatees and click bonuses. Below that is their LifeTime points which is going to be used to determine their place on the leaderboard
   
@@ -39,7 +39,7 @@
   <img src="images/ss_nav.png" width="300px" alt="ScreenShot of our NavBar">
   <img src="images/ss_settings.png" width="300px" alt="ScreenShot of our Settings"> <br>
 
-
+  The new technology we used is an directly installed plugin called jPlayer. This allowed us to format the audio file in our app so that it matched our style and persisted through each screen. In our audio we have "Dire Dire Docks" for your relaxation.
   ## Contributing
 <details>
   <summary> 
@@ -151,12 +151,13 @@
 
   Run using [Node.js](https://nodejs.org/en/), [Express.js](https://expressjs.com/), [MySQL2](https://www.npmjs.com/package/mysql2) and [Sequelize](https://www.npmjs.com/package/sequelize)
 
+  New Tech
+   - [jPlayer](https://www.npmjs.com/package/jplayer)
+
   Other NPMs Used
   - [dotenv](https://www.npmjs.com/package/dotenv)
   - [bcrypt](https://www.npmjs.com/package/bcrypt)
   - [path](https://www.npmjs.com/package/path)
-  - [scorerank](https://www.npmjs.com/package/scorerank)
-  - [sort-array](https://www.npmjs.com/package/sort-array)
   - [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize)
   - [express-handlebars](https://www.npmjs.com/package/express-handlebars)
   - [express-session](https://www.npmjs.com/package/express-session)
